@@ -1,0 +1,30 @@
+{
+  "short_name": "edunext_complete",
+  "name": "edunext_complete_extension",
+  "action": {},
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    
+    "scripting"
+  ], 
+  "content_scripts": [
+    {
+      "matches": ["https://edunext.vn/*/*", "https://fu.edunext.vn/*/*"],
+      "js": ["run.js"]
+    }
+  ]
+  ,
+  "background": {
+    "service_worker": "script.js"
+  },
+  
+ 
+  "web_accessible_resources":[{
+    "resources": ["script.js","dev.js"],
+    "matches": ["<all_urls>"]
+  }]
+}
