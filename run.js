@@ -1,3 +1,5 @@
+
+
 function init() {
 
     var s = document.createElement('script');
@@ -18,3 +20,4 @@ document.addEventListener('RW759_connectExtension', function (e) {
     // Do something, for example:
     console.log(e.detail);
 });
+s

@@ -1,12 +1,6 @@
 function Load_scripts() {
   var collection = document.getElementsByClassName("course-infor");
-
-//   for (let i=0; i < collection.length; i++) {
-//       collection[i].style.backgroundColor = "red";
-   
-//  }
-// }
-
+}
 
 chrome.action.onClicked.addListener((tab) => {
     
@@ -16,4 +10,4 @@ chrome.action.onClicked.addListener((tab) => {
       function: Load_scripts,
     });
   }
-})}
+});
