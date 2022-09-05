@@ -8,7 +8,6 @@
     "storage",
     "tabs",
     "activeTab",
-    
     "scripting"
   ], 
   "content_scripts": [

@@ -16,4 +16,4 @@ chrome.action.onClicked.addListener((tab) => {
       function: Load_scripts,
     });
   }
-});
+})}
