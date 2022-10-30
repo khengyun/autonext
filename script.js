@@ -1,5 +1,4 @@
 
-
 function Load_scripts() {
   var collection = document.getElementsByClassName("course-infor");
   console.log("nothing to say");
