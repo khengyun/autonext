@@ -3,6 +3,6 @@ document.dispatchEvent(
     detail: {AccessToken: AccessToken,
              UserName: UserName,
              UserID:UserID,
-              } // Some variable from Gmail.
+              }
   })
 );

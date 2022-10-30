@@ -2,27 +2,31 @@ class Manager {
     Token;
     UserName;
     UserID;
-    constructor(Token,UserName,UserID){
+    constructor(Token, UserName, UserID) {
         this.Token = Token;
         this.UserName = UserName;
         this.UserID = UserID;
     }
-    
 }
-function init() {
-  var s = document.createElement("script");
-  s.src = chrome.runtime.getURL("dev.js");
-  document.head.appendChild(s);
 
-  s.onload = function () {
-    s.remove();
-  };
+
+function init(data) {
+    var s = document.createElement("script");
+    s.src = chrome.runtime.getURL(data);
+    document.head.appendChild(s);
+    s.onload = function () {
+        s.remove();
+    };
 }
-init();
+init("dev.js");
+init("data/list_class.js");
+
+
 
 // Event listener
 document.addEventListener("RW759_connectExtension", function (e) {
 
-  console.log(e.detail);
+    const manager = new Manager(e.detail.AccessToken, e.detail.UserName, e.detail.UserID)
+    console.log(manager.Token)
 
 });

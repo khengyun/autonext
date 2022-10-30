@@ -23,7 +23,7 @@
   
  
   "web_accessible_resources":[{
-    "resources": ["script.js","dev.js"],
+    "resources": ["script.js","dev.js","data/list_class.js","List_Lesson.js"],
     "matches": ["<all_urls>"]
   }]
 }
