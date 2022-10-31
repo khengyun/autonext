@@ -1,15 +1,3 @@
-class Manager {
-    Token;
-    UserName;
-    UserID;
-    constructor(Token, UserName, UserID) {
-        this.Token = Token;
-        this.UserName = UserName;
-        this.UserID = UserID;
-    }
-}
-
-
 function init(data) {
     var s = document.createElement("script");
     s.src = chrome.runtime.getURL(data);
@@ -18,8 +6,33 @@ function init(data) {
         s.remove();
     };
 }
-init("dev.js");
 init("data/list_class.js");
+init("dev.js");
+
+class Manager {
+    Token;
+    UserName;
+    UserID;
+    Detail;
+    permalink = "/en/course/";
+    listCourseOfUser
+
+    constructor(Token, UserName, UserID) {
+        this.Token = Token;
+        this.UserName = UserName;
+        this.UserID = UserID;
+    }
+
+    getClass_List(){
+        console.log(this.listCourseOfUser)
+    }
+
+}
+
+
+
+
+
 
 
 
@@ -27,6 +40,7 @@ init("data/list_class.js");
 document.addEventListener("RW759_connectExtension", function (e) {
 
     const manager = new Manager(e.detail.AccessToken, e.detail.UserName, e.detail.UserID)
-    console.log(manager.Token)
+
+    // console.log(manager.Token)
 
 });
