@@ -5,9 +5,10 @@
 
 # User Manual
 
-1. [hướng dẫn tiếng việt](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme)
+1. [Hướng Dẫn Sử Dụng Bằng Tiếng Việt](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme)
+2. [User Manual In English](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme)
 
-
+MIT by [khengyun](https://github.com/khengyun)
 
 
 

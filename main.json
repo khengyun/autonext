@@ -1,0 +1,35 @@
+//take inside-group-score
+//GET get-evaluate-inside-group-score?groupid=497746&activityId=1181622&classId=4760 HTTP/1.1
+{
+  "success": true,
+  "message": "",
+  "code": 200,
+  "callBackFunction": null,
+  "data": [
+    {
+      "rollNumber": "CE171454",
+      "userId": 22003,
+      "fullName": "Hứa Tiến Thành",
+      "hardWorkingPoint": 5,
+      "goodPoint": 5,
+      "cooperativePoint": 5,
+      "totalPoint": 3
+    },
+    {
+      "rollNumber": "CE171601",
+      "userId": 21987,
+      "fullName": "Bùi Nguyễn Minh Thái",
+      "hardWorkingPoint": 5,
+      "goodPoint": 5,
+      "cooperativePoint": 5,
+      "totalPoint": 3
+    }
+  ],
+  "metaData": {
+    "total": 0,
+    "pageTotal": 0,
+    "pageSize": 0
+  }
+}
+
+//evaluate-inside-group?activityId=1181622&classId=4760&groupid=497746
