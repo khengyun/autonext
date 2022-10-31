@@ -23,7 +23,7 @@ function reqListener() {
                             const data = JSON.parse(req.responseText).data;
                             if (data && data.length !== 0) {
                                 for (let n = 0; n < data.length; n++) {
-                                    let point = 0;
+                                    let point = 5;
                                     const xhr = new XMLHttpRequest();
                                     xhr.open("POST", 'https://fuapi.edunext.vn/learn/v2/classes/presentcritical/evaluate-present');
                                     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
