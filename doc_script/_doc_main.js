@@ -1,4 +1,5 @@
 let listCourseOfUser = [];
+
 function reqListener() {
     const data = this.responseText;
     listCourseOfUser = JSON.parse(data).data.listCourseOfUser
@@ -30,7 +31,7 @@ function reqListener() {
                                     xhr.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
                                     xhr.onreadystatechange = () => { // Call a function when the state changes.
                                         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                                            console.log(data[n].id+ " Done !")
+                                            console.log(data[n].id + " Done !")
                                         }
                                     }
                                     xhr.send(`{"presentCriticalId":${data[n].id},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`);
