@@ -1,6 +1,6 @@
 {
-  "short_name": "edunext_complete",
-  "name": "edunext_complete_extension",
+  "short_name": "Eduauto",
+  "name": "Eduauto_from_Hovilo",
   "action": {},
   "version": "1.0",
   "manifest_version": 3,
@@ -9,21 +9,17 @@
     "tabs",
     "activeTab",
     "scripting"
-  ], 
+  ],
   "content_scripts": [
     {
-      "matches": ["https://edunext.vn/*/*", "https://fu.edunext.vn/*/*"],
-      "js": ["run.js"]
+      "matches": ["https://fu.edunext.vn/*"],
+      "js": ["main.js"]
     }
   ]
-  ,
-  "background": {
-    "service_worker": "script.js"
-  },
-  
- 
+,
   "web_accessible_resources":[{
-    "resources": ["script.js","dev.js","data/list_class.js","List_Lesson.js"],
-    "matches": ["<all_urls>"]
+    "resources": ["*.js","doc_script/*"],
+    "matches": ["https://fu.edunext.vn/*"],
+    "use_dynamic_url": true
   }]
 }
