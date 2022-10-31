@@ -1,7 +1,7 @@
 ### Hướng Dẫn Sử Dụng Dành Cho nextauto
 
 ## Bước 0 ( Tải file nguồn  )
-> ##### [Ấn vào đây để tải ](https://github.com/khengyun/nextauto/releases/latest/download/nextauto.zip)
+> ##### [Ấn vào đây để tải ](https://github.com/khengyun/nextauto/archive/refs/tags/nextauto_Latest.zip)
 - ### Sau khi tải về  =>  tiến hành giải nén
 
 - ### Sau khi giải nén sẽ có 1 folder nextauto như này
