@@ -35,7 +35,7 @@ function Individual_grade(activities_id, sessionId, classId) {
                     list_user_point.push(JSON.stringify(js_data))
                     if (list_user_point.length === data.length){
                         push_user_ingroup(list_user_point, activities_id, classId, groupId)
-                        console.log(list_user_point)
+
                     }
                 }
             });
