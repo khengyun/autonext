@@ -12,7 +12,6 @@ function reqListsesson(){
 }
 
 
-
 let listCourseOfUser = [];
 function reqListener() {
     const data = this.responseText;
