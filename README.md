@@ -1,7 +1,7 @@
 # nextauto
 
 - This automatic grading tool on edunext is intended for fpt university students
-- Công cụ chấm điểm tự động trên edunext này dành cho sinh viên đại học fpt
+- Công cụ chấm điểm tự động trên edunext này dành cho sinh viên fbip
 
 # User Manual
 
