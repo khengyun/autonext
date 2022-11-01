@@ -10,7 +10,8 @@
 | 2. **[User Manual In English](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme)**        |
 | **Feature** <br/>    - Presentation Grading <br/> - Group Members Grading                               |  
 
-MIT by [khengyun](https://github.com/khengyun)
+# License
+MIT © [khengyun](https://github.com/khengyun)
 
 
 
