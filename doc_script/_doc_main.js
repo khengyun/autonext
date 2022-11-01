@@ -61,10 +61,6 @@ function post_presentation_evaluate(point, presentCriticalId) {
     xhr.send(`{"presentCriticalId":${presentCriticalId},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`);
 }
 
-
-
-
-
 let listCourseOfUser = [];
 
 function reqListener() {
@@ -82,7 +78,6 @@ function reqListener() {
 
             const data = req.responseText;
             let reqLise = JSON.parse(data).data.sessions
-
             for (let j = 0; j < reqLise.length; j++) {
                 // console.log(reqLise[j].sections[0].activities)
                 const que = reqLise[j].sections[0].activities
