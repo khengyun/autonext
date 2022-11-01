@@ -61,16 +61,25 @@ function post_presentation_evaluate(point, presentCriticalId) {
     xhr.send(`{"presentCriticalId":${presentCriticalId},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`);
 }
 
+
+
+
+
 let listCourseOfUser = [];
 
 function reqListener() {
     const data = this.responseText;
     listCourseOfUser = JSON.parse(data).data.listCourseOfUser
     for (let i = 0; i < listCourseOfUser.length; i++) {
+
+
+
         const req = new XMLHttpRequest();
         req.open("GET", "https://fuapi.edunext.vn/learn/v2/classes/get-class-sessions-details?classId=" + listCourseOfUser[i].classId + "&courseId=" + listCourseOfUser[i].id);
         req.addEventListener("load", function () {
             let classId = listCourseOfUser[i].classId
+            let permalink = listCourseOfUser[i].permalink
+
             const data = req.responseText;
             let reqLise = JSON.parse(data).data.sessions
 
@@ -83,6 +92,9 @@ function reqListener() {
                         let activities_id = que[k].id
                         let sectionId = que[k].sectionId
                         //point starts here ++++++++++++++
+                        const valid = new Promise((resolve, reject)=>{
+
+
                         const req = new XMLHttpRequest();
                         req.open("GET", "https://fuapi.edunext.vn/learn/v2/classes/presentcritical/get-list-present-critical?activityId=" + que[k].id + "&sessionId=" + sessionId + "&classId=" + classId);
                         req.addEventListener("load", function () {
@@ -101,13 +113,21 @@ function reqListener() {
                         });
                         req.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
                         req.send();
+                        })
                         // console.log(que[k])
                     }
                 }
+
             }
         });
         req.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
         req.send();
+
+
+
+
+
+
     }
 }
 

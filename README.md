@@ -5,8 +5,10 @@
 
 # User Manual
 
-1. [Hướng Dẫn Sử Dụng Bằng Tiếng Việt](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme)
-2. [User Manual In English](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme)
+| 1. [Hướng Dẫn Sử Dụng Bằng Tiếng Việt](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme) |
+|---------------------------------------------------------------------------------------------------------|
+| 2. **[User Manual In English](https://github.com/khengyun/nextauto/tree/main/readme_vn#readme)**        |
+| **Feature** <br/>    - Presentation Grading <br/> - Group Members Grading                               |  
 
 MIT by [khengyun](https://github.com/khengyun)
 
