@@ -61,10 +61,6 @@ function post_presentation_evaluate(point, presentCriticalId) {
     xhr.send(`{"presentCriticalId":${presentCriticalId},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`);
 }
 
-
-
-
-
 let listCourseOfUser = [];
 
 function reqListener() {
