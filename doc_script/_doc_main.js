@@ -104,31 +104,9 @@ function reqListener() {
                             if (data && data.length !== 0) {
                                 for (let n = 0; n < data.length; n++) {
 
-
-
                                     let present_id = data[n].id;
                                     post_presentation_evaluate(point, present_id)
 
-<<<<<<< HEAD
-
-
-
-=======
-=======
-                                    let point = 5;
-                                    //auto point
-                                    const xhr = new XMLHttpRequest();
-                                    xhr.open("POST", 'https://fuapi.edunext.vn/learn/v2/classes/presentcritical/evaluate-present');
-                                    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-                                    xhr.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
-                                    xhr.onreadystatechange = () => { // Call a function when the state changes.
-                                        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                                            console.log(data[n].id + " Done !")
-                                        }
-                                    }
-                                    xhr.send(`{"presentCriticalId":${data[n].id},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`);
->>>>>>> 2def128 (update date test)
->>>>>>> 898c142 (update)
                                 }
                             }
                         });
