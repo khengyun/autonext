@@ -2,7 +2,7 @@
   "short_name": "Eduauto",
   "name": "Eduauto_from_Hovilo",
   "action": {},
-  "version": "1.0",
+  "version": "3.0.0",
   "manifest_version": 3,
   "permissions": [
     "storage",
@@ -18,7 +18,7 @@
   ]
 ,
   "web_accessible_resources":[{
-    "resources": ["*.js","doc_script/*"],
+    "resources": ["*.js","doc_script/_doc_*.js"],
     "matches": ["https://fu.edunext.vn/*"],
     "use_dynamic_url": true
   }]

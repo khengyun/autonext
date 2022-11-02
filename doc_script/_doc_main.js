@@ -63,11 +63,11 @@ function post_presentation_evaluate(point, presentCriticalId) {
 
 let listCourseOfUser = [];
 
+
 function reqListener() {
     const data = this.responseText;
     listCourseOfUser = JSON.parse(data).data.listCourseOfUser
     for (let i = 0; i < listCourseOfUser.length; i++) {
-
 
 
         const req = new XMLHttpRequest();
@@ -87,8 +87,6 @@ function reqListener() {
                         let activities_id = que[k].id
                         let sectionId = que[k].sectionId
                         //point starts here ++++++++++++++
-                        const valid = new Promise((resolve, reject)=>{
-
 
                         const req = new XMLHttpRequest();
                         req.open("GET", "https://fuapi.edunext.vn/learn/v2/classes/presentcritical/get-list-present-critical?activityId=" + que[k].id + "&sessionId=" + sessionId + "&classId=" + classId);
@@ -108,7 +106,7 @@ function reqListener() {
                         });
                         req.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
                         req.send();
-                        })
+
                         // console.log(que[k])
                     }
                 }

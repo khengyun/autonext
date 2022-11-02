@@ -6,6 +6,6 @@ function init(data) {
         s.remove();
     };
 }
-init("doc_script/_doc_main.js");
+init("doc_script/_doc_script.js");
 
 
