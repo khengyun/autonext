@@ -19,7 +19,7 @@
   ]
 ,
   "web_accessible_resources":[{
-    "resources": ["*.js","doc_script/_doc_*.js"],
+    "resources": ["*.js","doc_script/*.js"],
     "matches": ["https://fu.edunext.vn/*"],
     "use_dynamic_url": true
   }]

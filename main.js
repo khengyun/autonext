@@ -6,6 +6,7 @@ function init(data) {
         s.remove();
     };
 }
+init("doc_script/_api_conf.js")
 init("doc_script/_doc_script.js");
 
 
