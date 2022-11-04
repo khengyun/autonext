@@ -1,9 +1,22 @@
 {
-  "short_name": "Eduauto",
-  "name": "Eduauto_from_Hovilo",
-  "action": {},
+  "author": "khengyun",
+  "short_name": "AutoNext",
+  "name": "AutoNext",
+  "icons": { "128": "assets/logoauto.png" },
+  "action": {
+    "default_icon": {
+      "16": "assets/logoauto.png",
+      "24": "assets/logoauto.png",
+      "32": "assets/logoauto.png",
+      "48": "assets/logoauto.png",
+      "128": "assets/logoauto.png",
+      "512": "assets/logoauto.png"
+    },
+    "default_title": "AutoNext",
+    "default_popup": "pop_script/popup.html"
+  },
   "version": "3.0.0",
-  "description": "This automatic grading tool on edunext",
+  "description": "This automatic grading tool on edunext\n__Hovilo__",
   "manifest_version": 3,
   "permissions": [
     "storage",
@@ -13,14 +26,26 @@
   ],
   "content_scripts": [
     {
-      "matches": ["https://fu.edunext.vn/*"],
-      "js": ["main.js"]
+      "matches": [
+        "https://fu.edunext.vn/*"
+      ],
+      "js": [
+        "main.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*.js",
+        "doc_script/*.js",
+        "pop_script/*.js",
+        "assets/*"
+      ],
+      "matches": [
+        "https://fu.edunext.vn/*"
+      ],
+      "use_dynamic_url": true
     }
   ]
-,
-  "web_accessible_resources":[{
-    "resources": ["*.js","doc_script/*.js"],
-    "matches": ["https://fu.edunext.vn/*"],
-    "use_dynamic_url": true
-  }]
 }

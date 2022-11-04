@@ -13,7 +13,6 @@ function push_user_ingroup(push_data) {
         // console.log(e)
         //log some thing here
     })
-
 }
 
 function get_evaluate_inside_group_score(input_data) {

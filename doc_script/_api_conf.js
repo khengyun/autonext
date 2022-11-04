@@ -13,7 +13,6 @@ function get_settings(){
             group_members_grading = JSON.parse(localStorage.getItem("setting_value")).group_members_grading;
             presentation_grading = JSON.parse(localStorage.getItem("setting_value")).presentation_grading;
             discussion_grading = JSON.parse(localStorage.getItem("setting_value")).discussion_grading;
-
             resolve()
         }else{
             const setting_value = {
@@ -52,7 +51,6 @@ function get_api(input_get_data) {
         function reqListener_resolve() {
             resolve(this.responseText)
         }
-
         function reqListener_reject() {
             reject(`Error when load ${input_get_data.url}`)
         }

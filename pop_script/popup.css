@@ -1,0 +1,130 @@
+body {
+    min-width: 400px;
+    min-height: 60px;
+    background-color: #F2F3F3;
+}
+.image_logo{
+    margin-top: -10px;
+}
+.input-group {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.input-group-addon {
+    border: none;
+}
+#copyButton {
+    cursor: pointer;
+    background: rgba(249, 87, 0, 0.705);
+}
+
+#copyTarget {
+    border-left: none;
+}
+
+.copied {
+    float: right;
+    display: none;
+}
+.titleContainer {
+    padding-left: 25px;
+    padding-top: 10px;
+    border-bottom: solid 1px rgba(163, 163, 163, 0.3);
+    padding-bottom: 10px;
+}
+image {
+    display: inline-block;
+}
+.title {
+
+    padding-left: 10px;
+    display: inline-block;
+    font-weight: bold;
+
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.svg-inline--fa {
+    vertical-align: -0.2em;
+}
+
+.rounded-social-buttons {
+    text-align: center;
+}
+
+.rounded-social-buttons .social-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 2.125rem;
+    height: 2.125rem;
+    border: 0.125rem solid transparent;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    color: #fefefe;
+    font-weight: normal;
+    border-radius: 0.3rem;
+    transition: all 0.5s ease;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.rounded-social-buttons .social-button:hover,
+.rounded-social-buttons .social-button:focus {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.rounded-social-buttons .fa-facebook,
+.fa-github {
+    padding-top: 3px;
+    font-size: 25px;
+}
+
+.rounded-social-buttons .social-button.facebook {
+    background: #3b5998;
+}
+
+.rounded-social-buttons .social-button.facebook:hover,
+.rounded-social-buttons .social-button.facebook:focus {
+    color: #3b5998;
+    background: #fefefe;
+    border-color: #3b5998;
+}
+
+.rounded-social-buttons .social-button.youtube {
+    background: #000000;
+}
+
+.rounded-social-buttons .social-button.youtube:hover,
+.rounded-social-buttons .social-button.youtube:focus {
+    color: #000000;
+    background: #fefefe;
+    border-color: #000000;
+}
+.container {
+    min-height: 75px;
+    border-bottom: solid 1px rgba(163, 163, 163, 0.3);
+}
+footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#copyButton {
+    border-radius: 3px 0 0 3px;
+}
+.alert{
+    margin-top: 15px;
+}
