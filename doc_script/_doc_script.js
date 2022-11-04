@@ -1,18 +1,27 @@
 let evaluate_present_point = 5;
 let Individual_grade_point = 5;
-
+let group_members_grading = true;
+let presentation_grading = true;
+let discussion_grading = true
 
 
 function get_settings(){
     return new Promise((resolve, reject)=>{
         if (localStorage.getItem("setting_value")){
-            evaluate_present_point = JSON.parse(localStorage.getItem("setting_value")).present_point
-            Individual_grade_point = JSON.parse(localStorage.getItem("setting_value")).Individual_point
+            evaluate_present_point = JSON.parse(localStorage.getItem("setting_value")).present_point;
+            Individual_grade_point = JSON.parse(localStorage.getItem("setting_value")).Individual_point;
+            group_members_grading = JSON.parse(localStorage.getItem("setting_value")).group_members_grading;
+            presentation_grading = JSON.parse(localStorage.getItem("setting_value")).presentation_grading;
+            discussion_grading = JSON.parse(localStorage.getItem("setting_value")).discussion_grading;
+
             resolve()
         }else{
             const setting_value = {
                 "present_point":5,
                 "Individual_point":5,
+                "group_members_grading":true,
+                "presentation_grading" :true,
+                "discussion_grading":true,
             }
             console.log(setting_value)
             localStorage.setItem("setting_value",JSON.stringify(setting_value))
