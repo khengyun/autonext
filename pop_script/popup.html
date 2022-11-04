@@ -4,42 +4,87 @@
     <meta charset="UTF-8">
     <title>AutoNext</title>
     <link
-            rel="stylesheet"
+            crossorigin="anonymous"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
+            rel="stylesheet"
     />
     <link
-            rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            rel="stylesheet"
     />
-    <link rel="stylesheet" href="./popup.css">
+    <link href="./popup.css" rel="stylesheet">
+    <link href="./setting_table.css" rel="stylesheet">
 </head>
 <body>
 <!-- <input type="text" id="shareLink" /> -->
 <div class="titleContainer">
-    <img src="../assets/logoauto.png" class="image_logo" width="35px">
-    <h4 class="title">AutoNext</h4>
+    <div class="title_header">
+        <img class="image_logo" src="../assets/logoauto.png" width="35px">
+        <h4 class="title">AutoNext</h4>
+    </div>
 </div>
 
 <div class="container">
-    <span class="copied">Copied !</span>
-    <div class="input-group" style="display: none;">
-        <span id="copyButton" class="input-group-addon btn" title="Click to copy">
-          <i class="fa fa-clipboard" aria-hidden="true"></i>
-        </span>
-        <input type="text" id="shareLink" class="form-control" value="" style="font-size: 15px; height: 40px">
-    </div>
+    <div class="alert alert-warning">
+        <div class="setting_table">
+            <div class="setting_block">
+                <h5 class="name_setting_block">Present Point</h5>
+                <div class="button_setting">
+                    <select id="present_point" name="evaluate_present_point">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="setting_block">
+                <h5 class="name_setting_block">Individual Point</h5>
+                <div class="button_setting">
+                    <select id="individual_point" name="evaluate_present_point">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
 
-    <div class="alert alert-warning" role="alert">
+            <div class="setting_block">
+                <h5 class="name_setting_block">Group Members Grading</h5>
+                <div class="button_setting">
+                    <label class="switch">
+                        <input checked type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="setting_block">
+                <h5 class="name_setting_block">Presentation Grading</h5>
+                <div class="button_setting">
+                    <label class="switch">
+                        <input checked type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+        </div>
         Sorry, There is no link available current browser tab.
         Please make sure you are in the <strong>"My submission"</strong> tab
     </div>
 </div>
 <footer>
     <div class="rounded-social-buttons">
-        <a class="social-button facebook" href="https://www.facebook.com/niraitoo" target="_blank"><i class="fa fa-facebook"></i></a>
-        <a class="social-button youtube" href="https://github.com/HT-Dat/chrome-extension-coursera-getter" target="_blank"><i class="fa fa-github"></i></a>
+        <a class="social-button facebook" href="https://www.facebook.com/niraitoo" target="_blank"><i
+                class="fa fa-facebook"></i></a>
+        <a class="social-button youtube" href="https://github.com/HT-Dat/chrome-extension-coursera-getter"
+           target="_blank"><i class="fa fa-github"></i></a>
     </div>
 </footer>
 
