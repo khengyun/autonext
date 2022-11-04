@@ -1,6 +1,7 @@
 const evaluate_present_point = 5;
 const Individual_grade_point = 5;
 
+
 function post_api(input_get_data) {
     return new Promise((resolve, reject) => {
 
@@ -242,7 +243,11 @@ function get_course_current_of_user() {
     })
 }
 
+
+
+
 function __main__() {
+    localStorage.setItem('myCat', 'Tom');
     get_course_current_of_user()
 }
 

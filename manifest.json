@@ -3,6 +3,7 @@
   "name": "Eduauto_from_Hovilo",
   "action": {},
   "version": "3.0.0",
+  "description": "This automatic grading tool on edunext",
   "manifest_version": 3,
   "permissions": [
     "storage",
