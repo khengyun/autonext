@@ -1,6 +1,25 @@
-const evaluate_present_point = 5;
-const Individual_grade_point = 5;
+let evaluate_present_point = 5;
+let Individual_grade_point = 5;
 
+
+
+function get_settings(){
+    return new Promise((resolve, reject)=>{
+        if (localStorage.getItem("setting_value")){
+            evaluate_present_point = JSON.parse(localStorage.getItem("setting_value")).present_point
+            Individual_grade_point = JSON.parse(localStorage.getItem("setting_value")).Individual_point
+            resolve()
+        }else{
+            const setting_value = {
+                "present_point":5,
+                "Individual_point":5,
+            }
+            console.log(setting_value)
+            localStorage.setItem("setting_value",JSON.stringify(setting_value))
+            resolve()
+        }
+    })
+}
 
 function post_api(input_get_data) {
     return new Promise((resolve, reject) => {
@@ -243,12 +262,15 @@ function get_course_current_of_user() {
     })
 }
 
-
-
-
 function __main__() {
-    localStorage.setItem('myCat', 'Tom');
-    get_course_current_of_user()
+    const _setting_ = get_settings()
+    _setting_.then(()=>{
+        //code something here
+        get_course_current_of_user()
+    })
+        .finally(()=>{
+        console.log("done update local")
+    })
 }
 
 
