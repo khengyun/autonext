@@ -37,11 +37,68 @@ function get_api(input_get_data) {
     })
 }
 
+function push_user_ingroup(push_data) {
+    let activityId = push_data.activityId
+    let classId = push_data.classId
+    let groupId = push_data.groupId
+
+    console.log(push_data)
+
+    const post_point_to_server = post_api({
+        "url": `https://fuapi.edunext.vn/learn/v2/classes/presentcritical/evaluate-inside-group?activityId=${activityId}&classId=${classId}&groupid=${groupId}`,
+        "body": `[${push_data.body}]`
+    })
+    post_point_to_server.then((e) => {
+        // console.log(e)
+        //log some thing here
+    })
+
+}
+
+function get_evaluate_inside_group_score(input_data) {
+    // console.log(input_data)
+
+    const return_data = get_api({
+        "url": `https://fuapi.edunext.vn/learn/v2/classes/presentcritical/get-evaluate-inside-group-score?groupid=${input_data.groupId}&activityId=${input_data.activityId}&classId=${input_data.classId}`
+    })
+    return_data.then((e) => {
+        let point = Individual_grade_point
+        js_data = {'userId': 0, 'hardWorkingPoint': 0, 'goodPoint': 0, 'cooperativePoint': 0}
+        const members = JSON.parse(e).data;
+        const list_user_point = []
+        for (let member = 0; member < members.length; member++) {
+            js_data.userId = members[member].userId;
+            js_data.hardWorkingPoint = point;
+            js_data.goodPoint = point;
+            js_data.cooperativePoint = point;
+            list_user_point.push(JSON.stringify(js_data))
+            if (list_user_point.length === members.length) {
+                push_user_ingroup({
+                    "body": list_user_point,
+                    "activityId": input_data.activityId,
+                    "classId": input_data.classId,
+                    "groupId": input_data.groupId
+                })
+            }
+        }
+
+    })
+}
 
 function Individual_grade(input_data) {
     const req = new XMLHttpRequest();
-    req.open("GET", `https://fuapi.edunext.vn/learn/v2/course/get-session-activity-detail?activityId=${input_data.activities_id}&sessionid=${input_data.sessionId}`);
+    req.open("GET", `https://fuapi.edunext.vn/learn/v2/course/get-session-activity-detail?activityId=${input_data.activityId}&sessionid=${input_data.sessionId}`);
     req.addEventListener("load", function () {
+        const data = JSON.parse(req.responseText).data;
+        let groupId = data.groupId;
+
+        if (groupId) {
+            get_evaluate_inside_group_score({
+                "groupId": groupId,
+                "activityId": input_data.activityId,
+                "classId": input_data.classId
+            })
+        }
 
 
     });
@@ -50,7 +107,7 @@ function Individual_grade(input_data) {
 }
 
 function evaluate_present(presentCriticalId) {
-    let point = Individual_grade_point;
+    let point = evaluate_present_point;
 
     let return_data = post_api({
         "url": presentCriticalId.url,
@@ -58,7 +115,7 @@ function evaluate_present(presentCriticalId) {
         "point": point,
         "body": `{"presentCriticalId":${presentCriticalId.present_id},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`
     })
-    return_data.then((e)=>{
+    return_data.then((e) => {
         //output some thing here
     })
 }
@@ -84,6 +141,7 @@ function get_list_present_critical(get_list_present) {
 
             let check_done_evaluate_present = 0
 
+
             for (let present_critical = 0; present_critical < list_present_critical.length; present_critical++) {
 
                 let activityId = list_present_critical[present_critical].activityId;
@@ -100,11 +158,11 @@ function get_list_present_critical(get_list_present) {
                     "url": 'https://fuapi.edunext.vn/learn/v2/classes/presentcritical/evaluate-present',
                 })
 
-                // Individual_grade({
-                //     "sessionId": sessionId,
-                //     "activityId": activityId,
-                //     "classId": classId,
-                // })
+                Individual_grade({
+                    "sessionId": sessionId,
+                    "activityId": activityId,
+                    "classId": classId,
+                })
 
 
                 // console.log(list_present_critical)
