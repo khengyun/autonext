@@ -1,3 +1,8 @@
+
+
+
+/*css button*/
+
 .switch {
     position: relative;
     display: inline-block;
@@ -18,7 +23,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ff0000;
+    background-color: #f67412;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -57,47 +62,53 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-.setting_table{
+
+.setting_table {
     display: grid;
     grid-template-columns: auto;
 
 }
+
 /*khen code*/
-.setting_block{
+.setting_block {
     display: grid;
     grid-template-columns: 80% 20%;
 
 
 }
-.name_setting_block{
+
+.name_setting_block {
     width: auto;
     margin: unset;
     margin-top: 5px;
     min-height: 37px;
 
 }
-.button_setting{
+
+.button_setting {
     width: auto;
     height: auto;
 }
 
-.alert-warning{
+.alert-warning {
     border-radius: 20px;
+    background-color: rgba(211, 207, 207, 0.82);
+    border-color: #ffffff;
+    color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.option_button {
+    width: 60px;
+    height: 34px;
+    border-radius: 25px;
+    text-align: center;
+}
+#apply_button{
+   height: 34px;
+    width: 64px;
+    font-size: 12px;
+    border-radius: 30px;
+}
 
 
 

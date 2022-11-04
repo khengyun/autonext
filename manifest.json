@@ -2,7 +2,9 @@
   "author": "khengyun",
   "short_name": "AutoNext",
   "name": "AutoNext",
-  "icons": { "128": "assets/logoauto.png" },
+  "icons": {
+    "128": "assets/logoauto.png"
+  },
   "action": {
     "default_icon": {
       "16": "assets/logoauto.png",
@@ -24,6 +26,9 @@
     "activeTab",
     "scripting"
   ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "content_scripts": [
     {
       "matches": [
@@ -40,6 +45,7 @@
         "*.js",
         "doc_script/*.js",
         "pop_script/*.js",
+        "pop_script/*.css",
         "assets/*"
       ],
       "matches": [
@@ -47,5 +53,8 @@
       ],
       "use_dynamic_url": true
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "pop_script/bachground.js"
+  }
 }

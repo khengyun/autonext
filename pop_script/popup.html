@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>AutoNext</title>
     <link
             crossorigin="anonymous"
@@ -15,6 +17,11 @@
     />
     <link href="./popup.css" rel="stylesheet">
     <link href="./setting_table.css" rel="stylesheet">
+    <style>
+
+
+    </style>
+
 </head>
 <body>
 <!-- <input type="text" id="shareLink" /> -->
@@ -27,12 +34,12 @@
 
 <div class="container">
     <div class="alert alert-warning">
-        <div class="setting_table">
+        <div class="setting_table" id="setting_table">
             <div class="setting_block">
                 <h5 class="name_setting_block">Present Point</h5>
                 <div class="button_setting">
-                    <select id="present_point" name="evaluate_present_point">
-                        <option value="0">0</option>
+                    <select class="option_button" id="present_point" name="present_point">
+                        <option value="0" >0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -44,7 +51,7 @@
             <div class="setting_block">
                 <h5 class="name_setting_block">Individual Point</h5>
                 <div class="button_setting">
-                    <select id="individual_point" name="evaluate_present_point">
+                    <select class="option_button" id="individual_point" name="individual_point">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -59,7 +66,7 @@
                 <h5 class="name_setting_block">Group Members Grading</h5>
                 <div class="button_setting">
                     <label class="switch">
-                        <input checked type="checkbox">
+                        <input checked id="members_grading_checkbox" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -68,16 +75,24 @@
                 <h5 class="name_setting_block">Presentation Grading</h5>
                 <div class="button_setting">
                     <label class="switch">
-                        <input checked type="checkbox">
+                        <input checked id="presentation_grading_checkbox" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
             </div>
 
+
         </div>
-        Sorry, There is no link available current browser tab.
-        Please make sure you are in the <strong>"My submission"</strong> tab
+
+
+        <div class="setting_block">
+            <h5 class="name_setting_block"></h5>
+            <div class="button_setting">
+                <button id="apply_button" name="apply_button" value="apply_button"> Apply</button>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 <footer>
     <div class="rounded-social-buttons">
@@ -88,6 +103,6 @@
     </div>
 </footer>
 
-
+<script src="./popup.js" type="text/javascript"></script>
 </body>
 </html>
