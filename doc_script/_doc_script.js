@@ -1,7 +1,22 @@
 const evaluate_present_point = 5;
 const Individual_grade_point = 5;
 
+function post_api(input_get_data) {
+    return new Promise((resolve, reject) => {
 
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", input_get_data.url);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
+        xhr.onreadystatechange = () => { // Call a function when the state changes.
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                resolve(1)
+            }
+        }
+        xhr.send(input_get_data.body);
+    })
+
+}
 
 function get_api(input_get_data) {
     return new Promise((resolve, reject) => {
@@ -22,22 +37,30 @@ function get_api(input_get_data) {
     })
 }
 
-function evaluate_present(presentCriticalId) {
-    return new Promise((resolve, reject) => {
-        let point = evaluate_present_point;
-        let xhr;
-        xhr = new XMLHttpRequest();
-        xhr.open("POST", 'https://fuapi.edunext.vn/learn/v2/classes/presentcritical/evaluate-present');
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
-        xhr.onreadystatechange = () => { // Call a function when the state changes.
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                resolve(1)
-            }
-        }
-        xhr.send(`{"presentCriticalId":${presentCriticalId.present_id},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`);
-    })
 
+function Individual_grade(input_data) {
+    const req = new XMLHttpRequest();
+    req.open("GET", `https://fuapi.edunext.vn/learn/v2/course/get-session-activity-detail?activityId=${input_data.activities_id}&sessionid=${input_data.sessionId}`);
+    req.addEventListener("load", function () {
+
+
+    });
+    req.setRequestHeader('Authorization', 'Bearer ' + AccessToken);
+    req.send();
+}
+
+function evaluate_present(presentCriticalId) {
+    let point = Individual_grade_point;
+
+    let return_data = post_api({
+        "url": presentCriticalId.url,
+        "present_id": presentCriticalId.present_id,
+        "point": point,
+        "body": `{"presentCriticalId":${presentCriticalId.present_id},"beinTimePoint":${point},"focusOnTopicPoint":${point},"presentPoint":${point},"informativePoint":${point}}`
+    })
+    return_data.then((e)=>{
+        //output some thing here
+    })
 }
 
 function get_list_present_critical(get_list_present) {
@@ -45,6 +68,7 @@ function get_list_present_critical(get_list_present) {
     let activityId = get_list_present.activityId
     let sessionId = get_list_present.sessionId
     let classId = get_list_present.classId
+
     let title = get_list_present.title
     let current_active_count = get_list_present.current_active_count
     let list_active_lenght = get_list_present.list_active_lenght
@@ -70,13 +94,17 @@ function get_list_present_critical(get_list_present) {
                 let criticalGroupName = list_present_critical[present_critical].criticalGroupName;
 
 
-                let output = evaluate_present({
+                evaluate_present({
                     "present_id": present_id,
-                    "title": title
+                    "title": title,
+                    "url": 'https://fuapi.edunext.vn/learn/v2/classes/presentcritical/evaluate-present',
                 })
-                output.then((e)=>{
-   // i will code some thing here
-                })
+
+                // Individual_grade({
+                //     "sessionId": sessionId,
+                //     "activityId": activityId,
+                //     "classId": classId,
+                // })
 
 
                 // console.log(list_present_critical)
@@ -120,6 +148,8 @@ function get_class_sessions_details(input_get_class_sessions) {
                         "title": input_get_class_sessions.title,
 
                     })
+
+
                     console.log(`${input_get_class_sessions.title} ${activitie}/${list_activities.length - 1}`)
                 }
             }
