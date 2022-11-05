@@ -46,7 +46,7 @@
         "doc_script/*.js",
         "pop_script/*.js",
         "pop_script/*.css",
-        "assets/*"
+        "assets/*.png"
       ],
       "matches": [
         "https://fu.edunext.vn/*"

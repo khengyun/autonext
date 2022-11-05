@@ -8,10 +8,10 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
 .input-group-addon {
     border: none;
 }
-
 
 
 .copied {
@@ -22,6 +22,7 @@ body {
 image {
     display: inline-block;
 }
+
 .title {
 
     padding-left: 10px;
@@ -101,22 +102,26 @@ image {
     background: #fefefe;
     border-color: #000000;
 }
+
 .container {
     min-height: 75px;
     border-bottom: solid 1px rgba(163, 163, 163, 0.3);
 }
+
 footer {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
 #copyButton {
     border-radius: 3px 0 0 3px;
 }
-.alert{
+
+.alert {
     margin-top: 15px;
 }
 
-.titleContainer{
+.titleContainer {
     min-height: 80px;
     border-bottom: solid 1px rgba(163, 163, 163, 0.3);
     display: flex;
@@ -124,26 +129,34 @@ footer {
     justify-content: flex-start;
 }
 
-.title_header{
+.title_header {
     padding-top: 20px;
     margin-inline-start: 20px;
     height: auto;
 }
-.image_logo{
+
+.image_logo {
     padding-bottom: 10px;
 }
-.title{
+
+.title {
     margin: auto;
 }
 
 
+/*!*css doc*!*/
+
+.loader {
 
 
-
-
-
-
-
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
 
 
 

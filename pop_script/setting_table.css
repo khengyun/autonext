@@ -82,8 +82,15 @@ input:checked + .slider:before {
     margin: unset;
     margin-top: 5px;
     min-height: 37px;
-
 }
+
+.done_setting_block{
+    text-align: end;
+    padding-right: 8px;
+    font-size: 15px;
+    padding-top:  5px;
+}
+
 
 .button_setting {
     width: auto;
@@ -110,5 +117,10 @@ input:checked + .slider:before {
     border-radius: 30px;
 }
 
-
+#apply_button:hover {
+    height: 36px;
+    width: 66px;
+    font-size: 13px;
+    border-radius: 30px;
+}
 
