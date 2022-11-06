@@ -238,7 +238,7 @@ function __main__() {
                 const element = document.getElementsByClassName("course-infor");
                 let text_null = element[0].getElementsByTagName("a")[1]
 
-                if (text_null === undefined || text_null === null){
+                if (text_null !== undefined ){
                     for (let i = 0; i < element.length; i++) {
                         element[i].getElementsByTagName("a")[1]?.setAttribute("id", `loadding${i}`)
                         element[i].getElementsByTagName("a")[1].innerHTML = `
