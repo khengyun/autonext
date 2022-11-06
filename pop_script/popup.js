@@ -11,6 +11,7 @@ let json_data = {
 
 function post_on_off(data){
         localStorage.setItem("setting_value", JSON.stringify(data))
+        location.reload();
 }
 
 
@@ -21,6 +22,7 @@ function set_on_off_tooltip(){
     let dt = JSON.parse(localStorage.getItem("setting_value"))
     let set_on_off = document.getElementById("button_on_off_id");
     set_on_off.setAttribute("data-c-tooltip", `AutoNext` +` ${dt.work}`.toUpperCase())
+
 
 }
 

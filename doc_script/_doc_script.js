@@ -1,3 +1,16 @@
+let ele = document.getElementsByClassName("view-detail")
+function remove_loading(){
+    console.log(ele)
+    for (let i = 0 ; i < ele.length ; i++){
+        setInterval(function () {
+
+            document.getElementById(`loadding${i}`)?.remove();
+
+        },5000)
+    }
+
+}
+
 function push_user_ingroup(push_data) {
     let activityId = push_data.activityId
     let classId = push_data.classId
@@ -110,10 +123,15 @@ function get_list_present_critical(get_list_present) {
                 let criticalGroupId = list_present_critical[present_critical].criticalGroupId;
                 let criticalGroupName = list_present_critical[present_critical].criticalGroupName;
 
+                remove_loading()
 
 
+                if (!presentation_grading && !group_members_grading) {
 
-                if (presentation_grading) {
+                }
+
+
+                if (presentation_grading && work ) {
                     evaluate_present({
                         "present_id": present_id,
                         "title": title,
@@ -121,7 +139,7 @@ function get_list_present_critical(get_list_present) {
                     })
                 }
 
-                if (group_members_grading) {
+                if (group_members_grading && work) {
                     Individual_grade({
                         "sessionId": sessionId,
                         "activityId": activityId,
@@ -213,17 +231,16 @@ function __main__() {
     _setting_.then(() => {
         //code something here
 
-        if(work){
+        if (work) {
             get_course_current_of_user()
-        }
 
-        setInterval(function () {
-            const element = document.getElementsByClassName("course-infor");
-            for (let i = 0; i < element.length; i++) {
-                element[i].getElementsByTagName("a")[1].setAttribute("id", `loadding${i}`)
-                element[i].getElementsByTagName("a")[1].innerHTML = `
+            setInterval(function () {
+                const element = document.getElementsByClassName("course-infor");
+                for (let i = 0; i < element.length; i++) {
+                    element[i].getElementsByTagName("a")[1]?.setAttribute("id", `loadding${i}`)
+                    element[i].getElementsByTagName("a")[1].innerHTML = `
 
-                    <div class="loadingio-spinner-spinner-i78guwe8ib">
+                    <div  class="load_icon loadingio-spinner-spinner-i78guwe8ib">
                         <div class="ldio-onmbc07cl2j">
                             <div></div>
                             <div></div>
@@ -355,20 +372,40 @@ function __main__() {
 
 `
 
+                }
+            }, 800);
+
+
+        }else{
+            const element = document.getElementsByClassName("course-infor");
+            for (let i = 0; i < element.length; i++) {
+
+                let check = element[i]?.getElementsByTagName("a")[1].getElementsByClassName("load_icon")
+
+                if (check){
+
+                    element[i]?.getElementsByTagName("a")[1].setAttribute("id", `loadding${i}`)
+                    element[i].getElementsByTagName("a")[1].innerHTML = "<div>Done</div>"
+                }
+
+
+
+
             }
-        }, 800);
+
+        }
+
+
+
 
     })
         .finally(() => {
-            
+
         })
 }
 
 
 __main__()
-
-
-
 
 
 // let everythingLoaded = setInterval(function() {
