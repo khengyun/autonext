@@ -89,6 +89,8 @@ input:checked + .slider:before {
     padding-right: 8px;
     font-size: 15px;
     padding-top:  5px;
+    margin-left: -50px;
+    white-space: nowrap;
 }
 
 

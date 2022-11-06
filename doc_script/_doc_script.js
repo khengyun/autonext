@@ -1,11 +1,7 @@
-
-
-
 function push_user_ingroup(push_data) {
     let activityId = push_data.activityId
     let classId = push_data.classId
     let groupId = push_data.groupId
-
 
 
     const post_point_to_server = post_api({
@@ -115,7 +111,9 @@ function get_list_present_critical(get_list_present) {
                 let criticalGroupName = list_present_critical[present_critical].criticalGroupName;
 
 
-                if (presentation_grading){
+
+
+                if (presentation_grading) {
                     evaluate_present({
                         "present_id": present_id,
                         "title": title,
@@ -123,7 +121,7 @@ function get_list_present_critical(get_list_present) {
                     })
                 }
 
-                if (group_members_grading){
+                if (group_members_grading) {
                     Individual_grade({
                         "sessionId": sessionId,
                         "activityId": activityId,
@@ -175,7 +173,7 @@ function get_class_sessions_details(input_get_class_sessions) {
                     })
 
 
-                    console.log(`${input_get_class_sessions.title} ${activitie}/${list_activities.length - 1}`)
+                    // console.log(`${input_get_class_sessions.title} ${activitie}/${list_activities.length - 1}`)
                 }
             }
         }
@@ -211,16 +209,187 @@ function get_course_current_of_user() {
 
 function __main__() {
 
-
     const _setting_ = get_settings()
-    _setting_.then(()=>{
+    _setting_.then(() => {
         //code something here
-        get_course_current_of_user()
+
+        if(work){
+            get_course_current_of_user()
+        }
+
+        setInterval(function () {
+            const element = document.getElementsByClassName("course-infor");
+            for (let i = 0; i < element.length; i++) {
+                element[i].getElementsByTagName("a")[1].setAttribute("id", `loadding${i}`)
+                element[i].getElementsByTagName("a")[1].innerHTML = `
+
+                    <div class="loadingio-spinner-spinner-i78guwe8ib">
+                        <div class="ldio-onmbc07cl2j">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        
+                    </div>
+                    
+                    <style type="text/css">
+                    @keyframes ldio-onmbc07cl2j {
+                      0% { opacity: 1 }
+                      100% { opacity: 0 }
+                    }
+                    .ldio-onmbc07cl2j div {
+                      left: 50px;
+                      top: 50px;
+                      position: fixed;
+                      animation: ldio-onmbc07cl2j linear 1s infinite;
+                      background: #34bf49;
+                      width: 12px;
+                      height: 24px;
+                      border-radius: 6px / 12px;
+                      transform-origin: 6px 52px;
+                      
+                      
+                    }.ldio-onmbc07cl2j div:nth-child(1) {
+                      transform: rotate(0deg);
+                      animation-delay: -0.9166666666666666s;
+                      background: #0099e5;
+                    }.ldio-onmbc07cl2j div:nth-child(2) {
+                      transform: rotate(30deg);
+                      animation-delay: -0.8333333333333334s;
+                      background: #ff4c4c;
+                    }.ldio-onmbc07cl2j div:nth-child(3) {
+                      transform: rotate(60deg);
+                      animation-delay: -0.75s;
+                      background: #34bf49;
+                    }.ldio-onmbc07cl2j div:nth-child(4) {
+                      transform: rotate(90deg);
+                      animation-delay: -0.6666666666666666s;
+                      background: #0099e5;
+                    }.ldio-onmbc07cl2j div:nth-child(5) {
+                      transform: rotate(120deg);
+                      animation-delay: -0.5833333333333334s;
+                      background: #ff4c4c;
+                    }.ldio-onmbc07cl2j div:nth-child(6) {
+                      transform: rotate(150deg);
+                      animation-delay: -0.5s;
+                      background: #34bf49;
+                    }.ldio-onmbc07cl2j div:nth-child(7) {
+                      transform: rotate(180deg);
+                      animation-delay: -0.4166666666666667s;
+                      background: #0099e5;
+                    }.ldio-onmbc07cl2j div:nth-child(8) {
+                      transform: rotate(210deg);
+                      animation-delay: -0.3333333333333333s;
+                      background: #ff4c4c;
+                    }.ldio-onmbc07cl2j div:nth-child(9) {
+                      transform: rotate(240deg);
+                      animation-delay: -0.25s;
+                      background: #34bf49;
+                    }.ldio-onmbc07cl2j div:nth-child(10) {
+                      transform: rotate(270deg);
+                      animation-delay: -0.16666666666666666s;
+                      background: #0099e5;
+                    }.ldio-onmbc07cl2j div:nth-child(11) {
+                      transform: rotate(300deg);
+                      animation-delay: -0.08333333333333333s;
+                      background: #ff4c4c;
+                    }.ldio-onmbc07cl2j div:nth-child(12) {
+                      transform: rotate(330deg);
+                      animation-delay: 0s;
+                      background: #34bf49;
+                    }
+                    .loadingio-spinner-spinner-i78guwe8ib {
+                      width: 80px;
+                      height: 80px;
+                      /*display: inline-block;*/
+                      /*overflow: hidden;*/
+                      background: #ffffff;
+                    }
+                    .ldio-onmbc07cl2j {
+                      width: 100%;
+                      height: 100%;
+                      position: relative;
+                      transform: translateZ(0) scale(1);
+                      backface-visibility: hidden;
+                      
+                      transform-origin: 0 0; /* see note above */
+                    }
+                    .ldio-onmbc07cl2j div { box-sizing: content-box; }
+                    /* generated by https://loading.io/ */
+                    
+                    
+                    
+                    
+                    .view-detail{
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        margin-top: -10px ;
+                        padding-right: 15px;
+                        
+                    }
+                    .course-infor{
+                        display: grid;
+                        grid-template-rows: 45% 10% 45%;
+                        
+                    
+                    }
+                    
+                    .course-title{
+                    
+                      text-align: center;
+                    
+                    }
+                    
+                    
+                    </style>
+
+`
+            }
+        }, 800);
+
     })
-        .finally(()=>{
-        console.log("done update local")
-    })
+        .finally(() => {
+            
+        })
 }
 
 
 __main__()
+
+
+
+
+
+// let everythingLoaded = setInterval(function() {
+//     if (/loaded|complete/.test(document.readyState)) {
+//         clearInterval(everythingLoaded);
+//         alert("all loaded")
+//          // this is the function that gets called when everything is loaded
+//     }
+// }, 10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

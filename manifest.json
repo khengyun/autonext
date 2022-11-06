@@ -44,6 +44,7 @@
       "resources": [
         "*.js",
         "doc_script/*.js",
+        "doc_script/*.css",
         "pop_script/*.js",
         "pop_script/*.css",
         "assets/*.png"

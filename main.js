@@ -1,5 +1,5 @@
-function run_kk(data){
-    return new Promise((resolve, reject)=>{
+function run_kk(data) {
+    return new Promise((resolve, reject) => {
         let s = document.createElement("script");
         s.src = chrome.runtime.getURL(data);
         document.head.appendChild(s);
@@ -11,13 +11,14 @@ function run_kk(data){
 }
 
 let _init_ = run_kk("doc_script/_api_conf.js")
-_init_.then(()=>{
+_init_.then(() => {
     let init = run_kk("doc_script/_doc_script.js")
-    init.then(()=>{
-       let load = run_kk("doc_script/load_frame.js")
-        load.then(()=>{
-            //code some thing here
-        })
+    init.then(() => {
+
+
+
+
+
     })
 })
 
