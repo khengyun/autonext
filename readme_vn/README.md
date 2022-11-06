@@ -2,7 +2,7 @@
 
 ## <font color="yellow"> Bước 0 ( Tải file nguồn  ) </font>
 
-> ##### [Ấn vào đây để tải ](https://github.com/khengyun/autonext/archive/refs/tags/v3.0.1.zip)
+> ##### [Ấn vào đây để tải ](https://github.com/khengyun/autonext/archive/refs/tags/v3.1.2.zip)
 
 - ### Sau khi tải về  =>  tiến hành giải nén
 
