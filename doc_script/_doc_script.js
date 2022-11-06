@@ -1,6 +1,5 @@
 let ele = document.getElementsByClassName("view-detail")
 function remove_loading(){
-    console.log(ele)
     for (let i = 0 ; i < ele.length ; i++){
         setInterval(function () {
 
