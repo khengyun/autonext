@@ -236,9 +236,11 @@ function __main__() {
 
             setInterval(function () {
                 const element = document.getElementsByClassName("course-infor");
-                for (let i = 0; i < element.length; i++) {
-                    element[i].getElementsByTagName("a")[1]?.setAttribute("id", `loadding${i}`)
-                    element[i].getElementsByTagName("a")[1].innerHTML = `
+                let text_null = element[0].getElementsByTagName("a")[1]
+                if (text_null){
+                    for (let i = 0; i < element.length; i++) {
+                        element[i].getElementsByTagName("a")[1]?.setAttribute("id", `loadding${i}`)
+                        element[i].getElementsByTagName("a")[1].innerHTML = `
 
                     <div  class="load_icon loadingio-spinner-spinner-i78guwe8ib">
                         <div class="ldio-onmbc07cl2j">
@@ -372,6 +374,7 @@ function __main__() {
 
 `
 
+                    }
                 }
             }, 800);
 
