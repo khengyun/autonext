@@ -1,11 +1,11 @@
 # <font color="red"> Hướng Dẫn Sử Dụng Dành Cho nextauto </font>
 
 ## <font color="yellow"> Bước 0 ( Tải file nguồn  ) </font>
-> ##### [Ấn vào đây để tải ](https://github.com/khengyun/nextauto/archive/refs/tags/v2.1.0.zip)
+> ##### [Ấn vào đây để tải ](https://github.com/khengyun/autonext/archive/refs/tags/v3.0.0.zip)
 - ### Sau khi tải về  =>  tiến hành giải nén
 
 - ### Sau khi giải nén sẽ có 1 folder nextauto như này
-![img.png](img.png)
+![img.png](img.png | width=100 )
 - ### LƯU Ý : Tùy Phiên Bản Tên File Sẽ Khác Nhau
 
 ## <font color="yellow"> Bước 1 </font>
