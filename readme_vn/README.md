@@ -5,7 +5,7 @@
 - ### Sau khi tải về  =>  tiến hành giải nén
 
 - ### Sau khi giải nén sẽ có 1 folder nextauto như này
-![img.png](img.png | width=100 )
+![img.png](img.png )
 - ### LƯU Ý : Tùy Phiên Bản Tên File Sẽ Khác Nhau
 
 ## <font color="yellow"> Bước 1 </font>
