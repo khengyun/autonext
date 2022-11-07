@@ -115,12 +115,13 @@ function setBackGroundColor(json_data) {
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    let load_on_off = JSON.parse(localStorage.getItem("setting_value")).work;
+
     document.getElementById("present_point").value = JSON.parse(localStorage.getItem("setting_value")).present_point.toString()
     document.getElementById("individual_point").value = JSON.parse(localStorage.getItem("setting_value")).Individual_point.toString()
     document.getElementById("presentation_grading_checkbox").checked = JSON.parse(localStorage.getItem("setting_value")).presentation_grading
     document.getElementById("members_grading_checkbox").checked = JSON.parse(localStorage.getItem("setting_value")).group_members_grading
 
-    let load_on_off = JSON.parse(localStorage.getItem("setting_value")).work;
     if (load_on_off) {
         on_off_icon.style.fill = '#1db128'
         json_data.work = load_on_off;
