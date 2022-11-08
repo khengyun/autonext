@@ -9,25 +9,35 @@ let json_data = {
     "work": true
 }
 
-function post_on_off(data){
-        localStorage.setItem("setting_value", JSON.stringify(data))
-        location.reload();
+async function handleAlarm() {
+    try {
+        await chrome.action.setIcon({
+            path: {
+                '128': '../assets/image.png'
+            },
+        });
+    } catch (err) {
+        console.error(err);
+    }
 }
 
+
+function post_on_off(data) {
+    localStorage.setItem("setting_value", JSON.stringify(data))
+    location.reload();
+}
 
 
 const on_off_icon = document.getElementById("button_on_off");
 
-function set_on_off_tooltip(){
+function set_on_off_tooltip() {
     let dt = JSON.parse(localStorage.getItem("setting_value"))
     let set_on_off = document.getElementById("button_on_off_id");
-    set_on_off.setAttribute("data-c-tooltip", `AutoNext` +` ${dt.work}`.toUpperCase())
-
-
+    set_on_off.setAttribute("data-c-tooltip", `AutoNext` + ` ${dt.work}`.toUpperCase())
 }
 
 
-function check_on_off(){
+function check_on_off() {
     let on_off = JSON.parse(localStorage.getItem("setting_value")).work;
     if (on_off) {
         on_off_icon.style.fill = '#adadad'
@@ -36,6 +46,18 @@ function check_on_off(){
         set_off.work = false;
         json_data.work = false;
         localStorage.setItem("setting_value", JSON.stringify(set_off))
+
+
+        handleAlarm()
+
+
+        // chrome.action.setIcon({
+        //     path: {
+        //         '128': '../assets/image.png'
+        //     }
+        // });
+
+
         set_on_off_tooltip()
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             chrome.scripting.executeScript({
@@ -46,7 +68,6 @@ function check_on_off(){
         });
 
 
-
     } else if (!on_off) {
         on_off_icon.style.fill = '#1db128'
         // on_off_icon.setAttribute("fill", "#f67412 !important;");
@@ -54,6 +75,16 @@ function check_on_off(){
         set_on.work = true;
         json_data.work = true;
         localStorage.setItem("setting_value", JSON.stringify(set_on))
+
+
+
+
+        chrome.action.setIcon({
+            path: {
+                '128': '../assets/logoauto.png'
+            }
+        });
+
         set_on_off_tooltip()
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             chrome.scripting.executeScript({
@@ -69,7 +100,7 @@ function check_on_off(){
 
 //detec on off button
 on_off_icon.addEventListener('click', function () {
-   check_on_off()
+    check_on_off()
 })
 
 
@@ -127,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
         json_data.work = load_on_off;
         set_on_off_tooltip()
     } else if (!load_on_off) {
-        on_off_icon.style.fill =  '#adadad'
+        on_off_icon.style.fill = '#adadad'
         set_on_off_tooltip()
         json_data.work = load_on_off;
     }

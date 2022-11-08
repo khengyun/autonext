@@ -1,7 +1,9 @@
-// localStorage.setItem({key: value}, function() {
-//     console.log('Value is set to ' + value);
-// });
+// chrome.action.onClicked.addListener((tab) => {
 //
-// localStorage.getItem(['key'], function(result) {
-//     console.log('Value currently is ' + result.key);
+//     if (!tab.url.includes("chrome://")) {
+//         chrome.scripting.executeScript({
+//             target: { tabId: tab.id },
+//             function: Load_scripts,
+//         });
+//     }
 // });

@@ -23,6 +23,8 @@ function push_user_ingroup(push_data) {
     post_point_to_server.then((e) => {
         // console.log(e)
         //log some thing here
+    }).catch((e)=>{
+        console.log(e.message)
     })
 }
 
@@ -43,6 +45,7 @@ function get_evaluate_inside_group_score(input_data) {
             js_data.goodPoint = point;
             js_data.cooperativePoint = point;
             list_user_point.push(JSON.stringify(js_data))
+
             if (list_user_point.length === members.length) {
                 push_user_ingroup({
                     "body": list_user_point,
@@ -130,7 +133,7 @@ function get_list_present_critical(get_list_present) {
                 }
 
 
-                if (presentation_grading && work ) {
+                if (presentation_grading ) {
                     evaluate_present({
                         "present_id": present_id,
                         "title": title,
@@ -138,7 +141,8 @@ function get_list_present_critical(get_list_present) {
                     })
                 }
 
-                if (group_members_grading && work) {
+                if (group_members_grading ) {
+
                     Individual_grade({
                         "sessionId": sessionId,
                         "activityId": activityId,
@@ -235,7 +239,7 @@ function __main__() {
 
             setInterval(function () {
                 const element = document.getElementsByClassName("course-infor");
-                let text_null = element[0].getElementsByTagName("a")[1]
+                let text_null = element[0]?.getElementsByTagName("a")[1].innerText ;
 
                 if (text_null !== undefined ){
                     for (let i = 0; i < element.length; i++) {
