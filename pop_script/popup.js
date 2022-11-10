@@ -1,5 +1,9 @@
+const version = chrome.runtime.getManifest().version
 const elmColors = document.getElementsByName("apply_button");
+document.getElementById('version').innerText = `v${version}`
+
 const colors = ["red", "blue"];
+
 let json_data = {
     "present_point": 0,
     "Individual_point": 0,
@@ -9,67 +13,108 @@ let json_data = {
     "work": true
 }
 
-function post_on_off(data){
-        localStorage.setItem("setting_value", JSON.stringify(data))
-        location.reload();
+async function handleAlarm() {
+    try {
+        await chrome.action.setIcon({
+            path: {
+                '128': '../assets/image.png'
+            },
+        });
+    } catch (err) {
+        console.error(err);
+    }
 }
 
+
+function post_on_off(data) {
+    localStorage.setItem("setting_value", JSON.stringify(data))
+    location.reload();
+}
 
 
 const on_off_icon = document.getElementById("button_on_off");
 
-function set_on_off_tooltip(){
+function set_on_off_tooltip() {
     let dt = JSON.parse(localStorage.getItem("setting_value"))
     let set_on_off = document.getElementById("button_on_off_id");
-    set_on_off.setAttribute("data-c-tooltip", `AutoNext` +` ${dt.work}`.toUpperCase())
-
-
+    console.log(chrome.runtime.getManifest().version);
+    if (dt.work){
+        set_on_off.setAttribute("data-c-tooltip", `on`.toUpperCase())
+    }else{
+        set_on_off.setAttribute("data-c-tooltip", `off`.toUpperCase())
+    }
 }
 
 
-function check_on_off(){
+function check_on_off() {
     let on_off = JSON.parse(localStorage.getItem("setting_value")).work;
-    if (on_off) {
-        on_off_icon.style.fill = '#adadad'
-        // on_off_icon.setAttribute("fill", "#1db128 !important;")
-        let set_off = JSON.parse(localStorage.getItem("setting_value"))
-        set_off.work = false;
-        json_data.work = false;
-        localStorage.setItem("setting_value", JSON.stringify(set_off))
-        set_on_off_tooltip()
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                func: post_on_off,
-                args: [json_data]
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        if (on_off && url.includes('fu.edunext.vn/')) {
+            on_off_icon.style.fill = '#adadad'
+            // on_off_icon.setAttribute("fill", "#1db128 !important;")
+            let set_off = JSON.parse(localStorage.getItem("setting_value"))
+            set_off.work = false;
+            json_data.work = false;
+            localStorage.setItem("setting_value", JSON.stringify(set_off))
+
+
+            // handleAlarm()
+
+
+            // chrome.action.setIcon({
+            //     path: {
+            //         '128': '../assets/image.png'
+            //     }
+            // });
+
+
+            set_on_off_tooltip()
+            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                chrome.scripting.executeScript({
+                    target: {tabId: tabs[0].id},
+                    func: post_on_off,
+                    args: [json_data]
+                });
             });
-        });
+
+
+        } else if (!on_off && url.includes('fu.edunext.vn/')) {
+            on_off_icon.style.fill = '#1db128'
+            // on_off_icon.setAttribute("fill", "#f67412 !important;");
+            let set_on = JSON.parse(localStorage.getItem("setting_value"))
+            set_on.work = true;
+            json_data.work = true;
+            localStorage.setItem("setting_value", JSON.stringify(set_on))
 
 
 
-    } else if (!on_off) {
-        on_off_icon.style.fill = '#1db128'
-        // on_off_icon.setAttribute("fill", "#f67412 !important;");
-        let set_on = JSON.parse(localStorage.getItem("setting_value"))
-        set_on.work = true;
-        json_data.work = true;
-        localStorage.setItem("setting_value", JSON.stringify(set_on))
-        set_on_off_tooltip()
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                func: post_on_off,
-                args: [json_data]
+
+            chrome.action.setIcon({
+                path: {
+                    '128': '../assets/logoauto.png'
+                }
             });
-        });
+
+            set_on_off_tooltip()
+            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                chrome.scripting.executeScript({
+                    target: {tabId: tabs[0].id},
+                    func: post_on_off,
+                    args: [json_data]
+                });
+            });
 
 
-    }
+        }
+
+    });
+
 }
 
 //detec on off button
 on_off_icon.addEventListener('click', function () {
-   check_on_off()
+    check_on_off()
 })
 
 
@@ -127,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
         json_data.work = load_on_off;
         set_on_off_tooltip()
     } else if (!load_on_off) {
-        on_off_icon.style.fill =  '#adadad'
+        on_off_icon.style.fill = '#adadad'
         set_on_off_tooltip()
         json_data.work = load_on_off;
     }

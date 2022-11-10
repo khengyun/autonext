@@ -1,7 +1,13 @@
-// localStorage.setItem({key: value}, function() {
-//     console.log('Value is set to ' + value);
-// });
-//
-// localStorage.getItem(['key'], function(result) {
-//     console.log('Value currently is ' + result.key);
-// });
+
+
+
+chrome.action.onClicked.addListener((tab) => {
+
+    console.log("some thign")
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        if (!url.includes('https://fu.edunext.vn/')) {
+            document.getElementById('container').innerHTML = '<div>Please Switch To <a href="https://fu.edunext.vn/"> EDUNEXT  </a> Tab To Edit Settings</div>'
+        }
+    });
+});

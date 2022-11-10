@@ -85,12 +85,14 @@ input:checked + .slider:before {
 }
 
 .done_setting_block{
-    text-align: end;
-    padding-right: 8px;
     font-size: 15px;
-    padding-top:  5px;
-    margin-left: -50px;
+    /* padding-top: 5px; */
+    /* margin-left: -50px; */
     white-space: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -113,16 +115,41 @@ input:checked + .slider:before {
     text-align: center;
 }
 #apply_button{
+    margin-top: 10px;
    height: 34px;
-    width: 64px;
-    font-size: 12px;
-    border-radius: 30px;
-}
-
-#apply_button:hover {
-    height: 36px;
-    width: 66px;
+    width: 300px;
     font-size: 13px;
+    font-weight: bold;
     border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #000000;
+    background-color: #00b46a;
+    border: none;
+    box-shadow: 0 5px #999;
+}
+#apply_button:hover {background-color: #3e8e41}
+
+#apply_button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
+
+
+
+
+/*#apply_button:hover {*/
+/*    height: 36px;*/
+/*    width: 66px;*/
+/*    font-size: 13px;*/
+/*    border-radius: 30px;*/
+/*}*/
+.button_setting_block
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
