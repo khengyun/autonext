@@ -1,10 +1,13 @@
-// chrome.action.onClicked.addListener((tab) => {
-//
-//     if (!tab.url.includes("chrome://")) {
-//         chrome.scripting.executeScript({
-//             target: { tabId: tab.id },
-//             function: Load_scripts,
-//         });
-//     }
-// });
 
+
+
+chrome.action.onClicked.addListener((tab) => {
+
+    console.log("some thign")
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        if (!url.includes('https://fu.edunext.vn/')) {
+            document.getElementById('container').innerHTML = '<div>Please Switch To <a href="https://fu.edunext.vn/"> EDUNEXT  </a> Tab To Edit Settings</div>'
+        }
+    });
+});

@@ -48,63 +48,68 @@ function set_on_off_tooltip() {
 
 function check_on_off() {
     let on_off = JSON.parse(localStorage.getItem("setting_value")).work;
-    if (on_off) {
-        on_off_icon.style.fill = '#adadad'
-        // on_off_icon.setAttribute("fill", "#1db128 !important;")
-        let set_off = JSON.parse(localStorage.getItem("setting_value"))
-        set_off.work = false;
-        json_data.work = false;
-        localStorage.setItem("setting_value", JSON.stringify(set_off))
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        if (on_off && url.includes('fu.edunext.vn/')) {
+            on_off_icon.style.fill = '#adadad'
+            // on_off_icon.setAttribute("fill", "#1db128 !important;")
+            let set_off = JSON.parse(localStorage.getItem("setting_value"))
+            set_off.work = false;
+            json_data.work = false;
+            localStorage.setItem("setting_value", JSON.stringify(set_off))
 
 
-        handleAlarm()
+            // handleAlarm()
 
 
-        // chrome.action.setIcon({
-        //     path: {
-        //         '128': '../assets/image.png'
-        //     }
-        // });
+            // chrome.action.setIcon({
+            //     path: {
+            //         '128': '../assets/image.png'
+            //     }
+            // });
 
 
-        set_on_off_tooltip()
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                func: post_on_off,
-                args: [json_data]
+            set_on_off_tooltip()
+            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                chrome.scripting.executeScript({
+                    target: {tabId: tabs[0].id},
+                    func: post_on_off,
+                    args: [json_data]
+                });
             });
-        });
 
 
-    } else if (!on_off) {
-        on_off_icon.style.fill = '#1db128'
-        // on_off_icon.setAttribute("fill", "#f67412 !important;");
-        let set_on = JSON.parse(localStorage.getItem("setting_value"))
-        set_on.work = true;
-        json_data.work = true;
-        localStorage.setItem("setting_value", JSON.stringify(set_on))
+        } else if (!on_off && url.includes('fu.edunext.vn/')) {
+            on_off_icon.style.fill = '#1db128'
+            // on_off_icon.setAttribute("fill", "#f67412 !important;");
+            let set_on = JSON.parse(localStorage.getItem("setting_value"))
+            set_on.work = true;
+            json_data.work = true;
+            localStorage.setItem("setting_value", JSON.stringify(set_on))
 
 
 
 
-        chrome.action.setIcon({
-            path: {
-                '128': '../assets/logoauto.png'
-            }
-        });
-
-        set_on_off_tooltip()
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.scripting.executeScript({
-                target: {tabId: tabs[0].id},
-                func: post_on_off,
-                args: [json_data]
+            chrome.action.setIcon({
+                path: {
+                    '128': '../assets/logoauto.png'
+                }
             });
-        });
+
+            set_on_off_tooltip()
+            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                chrome.scripting.executeScript({
+                    target: {tabId: tabs[0].id},
+                    func: post_on_off,
+                    args: [json_data]
+                });
+            });
 
 
-    }
+        }
+
+    });
+
 }
 
 //detec on off button
