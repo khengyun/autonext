@@ -223,8 +223,8 @@ footer {
     content: attr(data-c-tooltip);
     font-size: 14px;
     line-height: 1.2;
-
-    width: 150px;
+    text-align: center;
+    width: 50px;
     height: auto;
     border-radius: 3px;
 }
@@ -331,3 +331,24 @@ footer {
     margin-left: 0;
     margin-bottom: -16px;
 }
+
+#version{
+    position: absolute;
+    right: 20px;
+    /* left: 5px; */
+    font-size: small;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

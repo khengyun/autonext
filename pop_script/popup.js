@@ -1,5 +1,9 @@
+const version = chrome.runtime.getManifest().version
 const elmColors = document.getElementsByName("apply_button");
+document.getElementById('version').innerText = `v${version}`
+
 const colors = ["red", "blue"];
+
 let json_data = {
     "present_point": 0,
     "Individual_point": 0,
@@ -33,7 +37,12 @@ const on_off_icon = document.getElementById("button_on_off");
 function set_on_off_tooltip() {
     let dt = JSON.parse(localStorage.getItem("setting_value"))
     let set_on_off = document.getElementById("button_on_off_id");
-    set_on_off.setAttribute("data-c-tooltip", `AutoNext` + ` ${dt.work}`.toUpperCase())
+    console.log(chrome.runtime.getManifest().version);
+    if (dt.work){
+        set_on_off.setAttribute("data-c-tooltip", `on`.toUpperCase())
+    }else{
+        set_on_off.setAttribute("data-c-tooltip", `off`.toUpperCase())
+    }
 }
 
 
