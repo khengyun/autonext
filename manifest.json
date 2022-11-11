@@ -17,7 +17,7 @@
     "default_title": "AutoNext",
     "default_popup": "pop_script/popup.html"
   },
-  "version": "3.2.3",
+  "version": "3.3.5",
   "description": "This automatic grading tool on edunext\n__Hovilo__",
   "manifest_version": 3,
   "permissions": [
@@ -27,7 +27,7 @@
     "scripting"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "https://api.github.com/repos/khengyun/*"
   ],
   "content_scripts": [
     {
@@ -46,6 +46,7 @@
         "doc_script/*.js",
         "doc_script/*.css",
         "pop_script/*.js",
+        "pop_script/*/*.js",
         "pop_script/*.css",
         "assets/*.png"
       ],
