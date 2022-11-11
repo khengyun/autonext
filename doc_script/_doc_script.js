@@ -141,14 +141,7 @@ function get_list_present_critical(get_list_present) {
                     })
                 }
 
-                if (group_members_grading ) {
 
-                    Individual_grade({
-                        "sessionId": sessionId,
-                        "activityId": activityId,
-                        "classId": classId,
-                    })
-                }
 
 
                 // console.log(list_present_critical)
@@ -190,9 +183,16 @@ function get_class_sessions_details(input_get_class_sessions) {
                         "sessionId": sessionId,
                         "classId": input_get_class_sessions.classId,
                         "title": input_get_class_sessions.title,
-
                     })
 
+                    if (group_members_grading ) {
+
+                        Individual_grade({
+                            "sessionId": sessionId,
+                            "activityId": activityId,
+                            "classId": input_get_class_sessions.classId,
+                        })
+                    }
 
                     // console.log(`${input_get_class_sessions.title} ${activitie}/${list_activities.length - 1}`)
                 }

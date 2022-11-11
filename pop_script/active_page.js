@@ -2,8 +2,6 @@ function check_version(data) {
     let local_version = version
     let github_version = data.tag_name.replace('v', '')
 
-    console.log(github_version, local_version);
-
     if (local_version !== github_version) {
         let download_link = `https://github.com/khengyun/autonext/archive/refs/tags/${data.tag_name}.zip`
         document.getElementById("version").innerHTML = '<div style="color: crimson"> Your version is no longer supported, click <a target="_blank" href=!!!> here</a> to download the new version </div>'.replace('!!!', `${download_link}`)

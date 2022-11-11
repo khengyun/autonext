@@ -154,7 +154,13 @@ for (let i = 0; i < elmColors.length; i++) {
 function setBackGroundColor(json_data) {
 
     localStorage.setItem("setting_value", JSON.stringify(json_data))
-    location.reload();
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        if (url.includes('fu.edunext.vn')){
+            location.reload();
+        }
+    });
+
 }
 
 

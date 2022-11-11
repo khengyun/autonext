@@ -173,7 +173,7 @@ footer {
 }
 
 #button_on_off{
-    fill: #1db128
+    fill: rgb(194, 194, 194)
 }
 
 [data-c-tooltip] {
@@ -344,6 +344,8 @@ footer {
     cursor: context-menu;
     text-align: center;
     padding: 5px;
+    color: #000000;
+    font-weight: bold;
 }
 
 
