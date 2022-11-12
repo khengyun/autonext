@@ -1,3 +1,8 @@
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+
+
 function check_version(data) {
     let local_version = version
     let github_version = data.tag_name.replace('v', '')
@@ -25,3 +30,4 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         document.getElementById('container').innerHTML = '<div>Please Switch To <a href="https://fu.edunext.vn"> EDUNEXT  </a> Tab To Edit Settings</div>'
     }
 });
+

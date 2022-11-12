@@ -17,7 +17,7 @@
     "default_title": "AutoNext",
     "default_popup": "pop_script/popup.html"
   },
-  "version": "3.3.6",
+  "version": "3.4.1",
   "description": "This automatic grading tool on edunext\n__Hovilo__",
   "manifest_version": 3,
   "permissions": [
@@ -61,7 +61,7 @@
     "service_worker": "pop_script/bachground.js"
   },
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'",
-    "sandbox": "sandbox allow-scripts; script-src 'self' 'https://apis.google.com/' 'https://www.gstatic.com/' 'https://*.firebaseio.com' 'https://www.googleapis.com' 'https://ajax.googleapis.com'; object-src 'self'"
+    "extension_pages": "script-src 'self' ; object-src 'self'",
+    "sandbox": "sandbox allow-scripts; script-src 'self' 'https://translate.googleapis.com/*'  'https://apis.google.com/' 'https://translate.google.com' 'https://www.gstatic.com/' 'https://*.firebaseio.com'  'https://www.googleapis.com' 'https://ajax.googleapis.com'; object-src 'self'"
   }
 }
