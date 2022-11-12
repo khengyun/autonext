@@ -27,7 +27,8 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://api.github.com/repos/khengyun/*"
+    "https://api.github.com/repos/khengyun/*",
+    "*translate.google.com/*"
   ],
   "content_scripts": [
     {
@@ -58,5 +59,9 @@
   ],
   "background": {
     "service_worker": "pop_script/bachground.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'",
+    "sandbox": "sandbox allow-scripts; script-src 'self' 'https://apis.google.com/' 'https://www.gstatic.com/' 'https://*.firebaseio.com' 'https://www.googleapis.com' 'https://ajax.googleapis.com'; object-src 'self'"
   }
 }
