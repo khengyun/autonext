@@ -1,10 +1,22 @@
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+
+
 function check_version(data) {
     let local_version = version
     let github_version = data.tag_name.replace('v', '')
 
     if (local_version !== github_version) {
         let download_link = `https://github.com/khengyun/autonext/archive/refs/tags/${data.tag_name}.zip`
-        document.getElementById("version").innerHTML = '<div style="color: crimson"> Your version is no longer supported, click <a target="_blank" href=!!!> here</a> to download the new version </div>'.replace('!!!', `${download_link}`)
+
+        let text = '<div style="color: crimson">  version is no longer supported, click <a target="_blank" href=!!!> here</a> to download the new_version </div>'
+            .replace('!!!', `${download_link}`)
+            .replace('new_version',`v${github_version}`)
+            .replace('version',`v${local_version}`)
+
+
+        document.getElementById("version").innerHTML = text;
         document.getElementById("version").style.position = 'static';
     }
 }
@@ -25,3 +37,4 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         document.getElementById('container').innerHTML = '<div>Please Switch To <a href="https://fu.edunext.vn"> EDUNEXT  </a> Tab To Edit Settings</div>'
     }
 });
+
