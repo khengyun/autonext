@@ -9,7 +9,14 @@ function check_version(data) {
 
     if (local_version !== github_version) {
         let download_link = `https://github.com/khengyun/autonext/archive/refs/tags/${data.tag_name}.zip`
-        document.getElementById("version").innerHTML = '<div style="color: crimson"> Your version is no longer supported, click <a target="_blank" href=!!!> here</a> to download the new version </div>'.replace('!!!', `${download_link}`)
+
+        let text = '<div style="color: crimson">  version is no longer supported, click <a target="_blank" href=!!!> here</a> to download the new_version </div>'
+            .replace('!!!', `${download_link}`)
+            .replace('new_version',`v${github_version}`)
+            .replace('version',`v${local_version}`)
+
+
+        document.getElementById("version").innerHTML = text;
         document.getElementById("version").style.position = 'static';
     }
 }
