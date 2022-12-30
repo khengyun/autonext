@@ -167,7 +167,7 @@ function get_class_sessions_details(input_get_class_sessions) {
             let courseId = list_sessions_in_course[session].sections[0].courseId
 
             // console.log(list_sessions_in_course[session])
-            if (list_activities && list_activities.length !== 0) {
+            if (list_activities && list_activities.length !== 0 && isOnGoing) {
                 for (let activitie = 0; activitie < list_activities.length; activitie++) {
 
                     let activityId = list_activities[activitie].id;

@@ -2,7 +2,7 @@
 
 ## <font color="yellow"> Bước 0 ( Tải file nguồn  ) </font>
 
-> ##### [Ấn vào đây để tải ](https://github.com/khengyun/autonext/archive/refs/tags/v3.4.5.zip)
+> ### [Ấn vào đây để tải ](https://github.com/khengyun/autonext/archive/refs/tags/v3.4.5.zip)
 
 - ### Sau khi tải về  =>  tiến hành giải nén
 
@@ -39,3 +39,7 @@
 - ### Giờ thì mở edunext lên nextauto sẽ được chạy tự động
 
 ![img_7.png](img_7.png)
+
+- # <font color="red"> Lưu Ý :</font> Phải ấn Apply trong lần chạy đầu tiên
+
+![img_8.png](img_8.png)
