@@ -11,6 +11,9 @@
 - ### LƯU Ý : Tùy Phiên Bản Tên File Sẽ Khác Nhau
 
 # <font color="yellow"> Bước cuối </font>
-- ## Xem video để cài đặt [click vào để xem](2023-01-11%2006-28-33.mkv)
-
+- ## Xem video để cài đặt 
+- ## Trang chủ edunext như cuối video thì đã cài thành công
  
+
+https://user-images.githubusercontent.com/78076796/211686931-1bcc44f4-0262-42fb-ac00-f93afb0ceb17.mp4
+
