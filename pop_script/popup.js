@@ -4,13 +4,17 @@ document.getElementById('version').innerText = `v${version}`
 
 const colors = ["red", "blue"];
 
+const run_first_times = {
+    "run_first_times": true,
+}
+
 let json_data = {
-    "present_point": 0,
-    "Individual_point": 0,
+    "present_point": 5,
+    "Individual_point": 5,
     "group_members_grading": true,
     "presentation_grading": true,
     "discussion_grading": true,
-    "work": true
+    "work": false
 }
 
 async function handleAlarm() {
@@ -119,6 +123,7 @@ on_off_icon.addEventListener('click', function () {
 
 
 for (let i = 0; i < elmColors.length; i++) {
+    
     elmColors[i].onclick = () => {
         let change_things = document.getElementById('setting_button_block');
         let new_change = document.createElement("h5")
@@ -148,6 +153,8 @@ for (let i = 0; i < elmColors.length; i++) {
             });
         });
 
+        window.close();
+
     }
 }
 
@@ -164,25 +171,33 @@ function setBackGroundColor(json_data) {
 }
 
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    let load_on_off = JSON.parse(localStorage.getItem("setting_value")).work;
-
-
+    if (JSON.parse(localStorage.getItem("setting_value"))) {
+        let load_on_off = JSON.parse(localStorage.getItem("setting_value")).work;
         document.getElementById("present_point").value = JSON.parse(localStorage.getItem("setting_value")).present_point.toString()
         document.getElementById("individual_point").value = JSON.parse(localStorage.getItem("setting_value")).Individual_point.toString()
         document.getElementById("presentation_grading_checkbox").checked = JSON.parse(localStorage.getItem("setting_value")).presentation_grading
         document.getElementById("members_grading_checkbox").checked = JSON.parse(localStorage.getItem("setting_value")).group_members_grading
 
-    if (load_on_off) {
-        on_off_icon.style.fill = '#1db128'
-        json_data.work = load_on_off;
-        set_on_off_tooltip()
-    } else if (!load_on_off) {
-        on_off_icon.style.fill = '#adadad'
-        set_on_off_tooltip()
-        json_data.work = load_on_off;
+        if (load_on_off) {
+            on_off_icon.style.fill = '#1db128'
+            json_data.work = load_on_off;
+            set_on_off_tooltip()
+        } else if (!load_on_off) {
+            on_off_icon.style.fill = '#adadad'
+            set_on_off_tooltip()
+            json_data.work = load_on_off;
+        }
+    }else{
+
     }
 
 })
+
+
+
 

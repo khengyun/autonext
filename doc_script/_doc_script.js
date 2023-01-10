@@ -1,4 +1,19 @@
 let ele = document.getElementsByClassName("view-detail")
+
+
+const compareDates = (endtime, currenttime) => {
+    let date1 = new Date(endtime);
+    let date2 = new Date(currenttime);
+
+    if (date1 < date2) {
+        return false
+    } else if (date1 >= date2) {
+        return true
+};}
+
+
+
+
 function remove_loading(){
     for (let i = 0 ; i < ele.length ; i++){
         setInterval(function () {
@@ -7,7 +22,6 @@ function remove_loading(){
 
         },5000)
     }
-
 }
 
 function push_user_ingroup(push_data) {
@@ -125,8 +139,7 @@ function get_list_present_critical(get_list_present) {
                 let criticalGroupId = list_present_critical[present_critical].criticalGroupId;
                 let criticalGroupName = list_present_critical[present_critical].criticalGroupName;
 
-                remove_loading()
-
+                // remove_loading()
 
                 if (!presentation_grading && !group_members_grading) {
 
@@ -140,9 +153,6 @@ function get_list_present_critical(get_list_present) {
                         "url": 'https://fuapi.edunext.vn/learn/v2/classes/presentcritical/evaluate-present',
                     })
                 }
-
-
-
 
                 // console.log(list_present_critical)
             }
@@ -161,38 +171,48 @@ function get_class_sessions_details(input_get_class_sessions) {
         // console.log({"externalcode: ":input_get_class_sessions.externalcode,list_sessions_in_course})
         for (let session = 0; session < list_sessions_in_course.length; session++) {
 
+            // let endTime = list_sessions_in_course[session].endTime; //thời gian kết thúc môn học
             let sessionId = list_sessions_in_course[session].sessionId;
             let isOnGoing = list_sessions_in_course[session].isOnGoing;
             let list_activities = list_sessions_in_course[session].sections[0].activities
+
             let courseId = list_sessions_in_course[session].sections[0].courseId
 
             // console.log(list_sessions_in_course[session])
-            if (list_activities && list_activities.length !== 0 && isOnGoing) {
+            if (list_activities && list_activities.length !== 0 ) {
                 for (let activitie = 0; activitie < list_activities.length; activitie++) {
+
 
                     let activityId = list_activities[activitie].id;
                     let sectionId = list_activities[activitie].sectionId;
                     let title = list_activities[activitie].title;
-                    let endTime = list_activities[activitie].endTime;
+                    let endTime = list_activities[activitie].endTime; //thời gian kết thúc hoạt động
                     let startTime = list_activities[activitie].startTime;
                     let currentUTC = list_activities[activitie].currentUTC;
                     let permalink = list_activities[activitie].permalink;
 
-                    get_list_present_critical({
-                        "activityId": activityId,
-                        "sessionId": sessionId,
-                        "classId": input_get_class_sessions.classId,
-                        "title": input_get_class_sessions.title,
-                    })
+                    if (compareDates(endTime,currentUTC)  ){
 
-                    if (group_members_grading ) {
+                        // console.log(endTime,currentUTC,input_get_class_sessions.classId,input_get_class_sessions.CourseOfUser_id, activityId ,sessionId)
 
-                        Individual_grade({
-                            "sessionId": sessionId,
+                        get_list_present_critical({
                             "activityId": activityId,
+                            "sessionId": sessionId,
                             "classId": input_get_class_sessions.classId,
+                            "title": input_get_class_sessions.title,
                         })
+
+                        if (group_members_grading ) {
+
+                            Individual_grade({
+                                "sessionId": sessionId,
+                                "activityId": activityId,
+                                "classId": input_get_class_sessions.classId,
+                            })
+                        }
                     }
+
+
 
                     // console.log(`${input_get_class_sessions.title} ${activitie}/${list_activities.length - 1}`)
                 }

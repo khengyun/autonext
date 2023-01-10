@@ -1,7 +1,3 @@
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-
 
 function check_version(data) {
     let local_version = version
