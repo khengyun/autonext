@@ -14,6 +14,5 @@
 - ## Xem video để cài đặt 
 - ## Trang chủ edunext như cuối video thì đã cài thành công
  
-
-https://user-images.githubusercontent.com/78076796/211686931-1bcc44f4-0262-42fb-ac00-f93afb0ceb17.mp4
+https://user-images.githubusercontent.com/78076796/211687272-7b09ddda-e15e-44d5-b2e9-26efe7d5fd42.mp4
 
