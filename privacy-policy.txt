@@ -1,0 +1,52 @@
+# Privacy Policy 
+
+
+## What is a Privacy Policy
+Privacy Policy is a description of what we do with personal data. The important things to describe in the policy are how you and our website or app collect, use, store, and share or disclose information about people. Providing a privacy policy also helps users understand what happens to information about users.
+
+**Note:** The Privacy Policy is not the same as the Terms and Conditions agreement. Terms and conditions are agreements where we include rules and guidelines that users must agree to in order to use our website or application.
+
+## How we use your Personal Data
+
+We absolutely do not use any of your personal data. which includes
+* First and last name
+* Email address
+* Billing and shipping address
+* Credit card information
+* And so on
+
+
+## When is a Privacy Policy required
+
+## When to get a Privacy Policy
+
+A Privacy Policy is required by law if we collect your personal data. One should be provided where your website or app does anything with personal data. The privacy policy lets you know what rights you have and we will also tell you what data we will use about you for our program.
+
+
+## How this Privacy Policy works
+This Privacy Statement describes the personal data we collect and/or process (which may include collecting, organizing, structuring, storing, using). 
+
+## Disclaimer
+
+We disclaim responsibility for the user's use of the tool not for the intended purpose.
+
+This Privacy Policy is not legal advice and is not a substitute for an actual live attorney. We do not use user information on our server at all, all data is stored on the user's machine.
+
+You should also know that this Privacy Policy Template is provided under a sample supply from google
+
+
+## License
+
+This Privacy Policy is licensed under the [MIT License, version 3 (MIT license)](https://github.com/khengyun/autonext/blob/main/LICENSE.txt) and is distributed free of charge.
+
+
+## Author
+
+Arthur Garegnyan
+
+* Email: khaangnguyeen@gmail.com
+
+* GitHub: [https://github.com/ArthurGareginyan/](https://github.com/khengyun)
+
+* Facebook: [https://www.facebook.com/niraitoo](https://www.facebook.com/niraitoo)
+
