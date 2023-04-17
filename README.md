@@ -3,7 +3,8 @@
 - This automatic grading tool on edunext is intended for fpt university students
 - Công cụ chấm điểm tự động trên edunext này dành cho sinh viên fbip
 
-
+> The tool is now available on the Chrome Store: 
+> - https://chrome.google.com/webstore/detail/autonext/boflhmepcnacopclkkedcgoemjglankf?hl=en
 
 
 https://user-images.githubusercontent.com/78076796/211687626-9cd38192-ccba-4c73-9457-397828f46754.mp4
