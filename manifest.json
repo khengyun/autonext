@@ -5,6 +5,38 @@
   "icons": {
     "128": "assets/logoauto.png"
   },
+  "version": "3.5.1",
+  "manifest_version": 3,
+  "permissions": [
+    "webRequest",
+    "storage",
+    "activeTab",
+    "tabs",
+    "notifications",
+    "https://*.fpt.edu.vn/*"
+  ],
+  "host_permissions": ["https://*.fpt.edu.vn/*"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "background_script/*.js",
+        "assets/*.png"
+      ],
+      "matches": ["https://fu.edunext.vn/*"],
+      "use_dynamic_url": true
+    }
+  ],
+  "background": {
+    "service_worker": "background_script/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content/content.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
   "action": {
     "default_icon": {
       "16": "assets/logoauto.png",
@@ -16,52 +48,5 @@
     },
     "default_title": "AutoNext",
     "default_popup": "pop_script/popup.html"
-  },
-  "version": "3.4.8",
-  "description": "This automatic grading tool on edunext\n__Hovilo__",
-  "manifest_version": 3,
-  "permissions": [
-    "storage",
-    "tabs",
-    "activeTab",
-    "scripting"
-  ],
-  "host_permissions": [
-    "https://api.github.com/repos/khengyun/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://fu.edunext.vn/*"
-      ],
-      "js": [
-        "main.js"
-      ]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "*.js",
-        "doc_script/*.js",
-        "doc_script/*.css",
-        "pop_script/*.js",
-        "pop_script/*/*.js",
-        "pop_script/*.css",
-        "assets/*.png"
-      ],
-      "matches": [
-        "https://fu.edunext.vn/*"
-      ],
-      "use_dynamic_url": true
-    }
-  ],
-  "background": {
-    "service_worker": "pop_script/bachground.js"
-  },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self' ; object-src 'self'",
-    "sandbox": "sandbox allow-scripts; script-src 'self' 'https://translate.google.com/*'  'https://apis.google.com/' 'https://translate.google.com' 'https://www.gstatic.com/' 'https://*.firebaseio.com'  'https://www.googleapis.com' 'https://ajax.googleapis.com'; object-src 'self'"
   }
 }
-
