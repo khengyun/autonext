@@ -1,5 +1,5 @@
 # autonext
-
+#### [NEW: Đã cập nhật phù hợp Edunext mới ]
 - This automatic grading tool on edunext is intended for fpt university students
 - Công cụ chấm điểm tự động trên edunext này dành cho sinh viên fbip
 
