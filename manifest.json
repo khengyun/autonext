@@ -2,6 +2,7 @@
   "author": "khengyun",
   "short_name": "AutoNext",
   "name": "AutoNext",
+  "description": "This automatic grading tool on edunext\n__Hovilo__",
   "icons": {
     "128": "assets/logoauto.png"
   },
@@ -13,6 +14,7 @@
     "activeTab",
     "tabs",
     "notifications",
+    "scripting",
     "https://*.fpt.edu.vn/*"
   ],
   "host_permissions": ["https://*.fpt.edu.vn/*"],
@@ -20,7 +22,10 @@
     {
       "resources": [
         "background_script/*.js",
-        "assets/*.png"
+        "assets/*.png",
+        "popup/*.js",
+        "popup/*.html",
+        "popup/*.css"
       ],
       "matches": ["https://fu.edunext.vn/*"],
       "use_dynamic_url": true
@@ -47,6 +52,10 @@
       "512": "assets/logoauto.png"
     },
     "default_title": "AutoNext",
-    "default_popup": "pop_script/popup.html"
+    "default_popup": "popup/popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' ; object-src 'self'",
+    "sandbox": "sandbox allow-scripts; script-src 'self'   'https://apis.google.com/' 'https://www.gstatic.com/' 'https://*.firebaseio.com'  'https://www.googleapis.com' 'https://ajax.googleapis.com'; object-src 'self'"
   }
 }

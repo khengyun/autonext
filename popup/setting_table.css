@@ -1,0 +1,155 @@
+
+
+
+/*css button*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f67412;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #1db128;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.setting_table {
+    display: grid;
+    grid-template-columns: auto;
+
+}
+
+/*khen code*/
+.setting_block {
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+
+}
+
+.name_setting_block {
+    width: auto;
+    margin: unset;
+    margin-top: 5px;
+    min-height: 37px;
+}
+
+.done_setting_block{
+    font-size: 15px;
+    /* padding-top: 5px; */
+    /* margin-left: -50px; */
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button_setting {
+    width: auto;
+    height: auto;
+}
+
+.alert-warning {
+    border-radius: 20px;
+    background-color: rgba(211, 207, 207, 0.82);
+    border-color: #ffffff;
+    color: black;
+}
+
+.option_button {
+    width: 60px;
+    height: 34px;
+    border-radius: 25px;
+    text-align: center;
+}
+#apply_button{
+    margin-top: 10px;
+   height: 34px;
+    width: 300px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #000000;
+    background-color: #00b46a;
+    border: none;
+    box-shadow: 0 5px #999;
+}
+#apply_button:hover {background-color: #3e8e41}
+
+#apply_button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+
+
+
+/*#apply_button:hover {*/
+/*    height: 36px;*/
+/*    width: 66px;*/
+/*    font-size: 13px;*/
+/*    border-radius: 30px;*/
+/*}*/
+.button_setting_block
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
