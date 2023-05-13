@@ -7,7 +7,11 @@
 > - https://chrome.google.com/webstore/detail/autonext/boflhmepcnacopclkkedcgoemjglankf?hl=en
 
 
-https://user-images.githubusercontent.com/78076796/211687626-9cd38192-ccba-4c73-9457-397828f46754.mp4
+
+
+Uploading 2023-05-13 20-19-40.mp4…
+
+
 
 
 # User Manual
