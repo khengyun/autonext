@@ -1,24 +1,29 @@
 console.log("background.js");
 importScripts("api.js");
 importScripts("helpui.js");
-
-
-
 function grade_teammates(params, privateCqId, classroomSessionId, groupId) {
-  console.log(params);
-  
+  // console.log(params);
+
   // console.log(
   //   format_grade_teammates(params, privateCqId, classroomSessionId, groupId)
   // );
-
-
-  console.log(params);
+  // console.log(params);
   const ans = post_api({
     url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/grade/grade-teammates`,
-    body: {"gradeTeammatesList":format_grade_teammates(params, privateCqId, classroomSessionId, groupId)},
+    body: {
+      gradeTeammatesList: format_grade_teammates(
+        params,
+        privateCqId,
+        classroomSessionId,
+        groupId
+      ),
+    },
   });
   ans
-    .then((data) => {})
+    .then((data) => {
+      console.log(data)
+
+    })
     .catch((e) => {
       console.log(e);
     });
@@ -26,7 +31,7 @@ function grade_teammates(params, privateCqId, classroomSessionId, groupId) {
 
 function get_grade(params) {
   // param = {"privateCqId":privateCqId,"sessionId":sessionId,"groupId":groupID}
-  
+
   const ans = post_api({
     url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/grade/get-grade`,
     body: {
@@ -38,16 +43,17 @@ function get_grade(params) {
     .then((data) => {
       if (data.data.gradeResponseList.length != 0) {
         // console.log(params.privateCqId, params.sessionId, params.groupId);
-        console.log(data.data);
-        
+        // console.log(data.data);
+
         privateCqId = params.privateCqId;
         sessionId = params.sessionId;
         groupId = params.groupId;
         grade_teammates(
           data.data.gradeResponseList,
-          privateCqId,sessionId, groupId
+          privateCqId,
+          sessionId,
+          groupId
         );
-       
       }
     })
     .catch((e) => {
@@ -94,11 +100,10 @@ function list_group() {
                 // console.log(element3);
 
                 get_grade({
-                  "privateCqId": privateCqId,
-                  "sessionId": sessionId,
-                  "groupId": groupID,
+                  privateCqId: privateCqId,
+                  sessionId: sessionId,
+                  groupId: groupID,
                 });
-                
               }
 
               // Iterate over the students in the current group.
@@ -213,24 +218,21 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
           console.log(USER_INFOR);
           subjects_in_the_semester("DEFAULT");
 
-          chrome.runtime.sendMessage({type: 'popup', message: "hello vietnam"}, function(response) {
-            console.log('Received response from background:', response);
-          });
+          // send mess from background script to popup script
+          messtopopup({ type: "background", message: USER_INFOR });
+          //send mess from background script to content script
+          messtocontent(details,token)
+
 
         })
         .catch((e) => {
           console.log(e.message);
         });
-      chrome.tabs.sendMessage(details.tabId, {
-        token: token,
-        details: details,
-      });
+      
     }
   },
   {
-    urls: ["https://fugw-edunext.fpt.edu.vn:8443/api/auth/token"],
+    urls: [`https://fugw-edunext.fpt.edu.vn:${PORT}/api/auth/token`],
   },
   ["requestHeaders"]
 );
-
-

@@ -29,8 +29,37 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     })
 
     let url = tabs[0].url;
-    if (!url.includes('https://fu-edunext.fpt.edu.vn/')) {
-        document.getElementById('container').innerHTML = '<div>Please Switch To <a href="https://fu.edunext.vn"> EDUNEXT  </a> Tab To Edit Settings</div>'
+    console.log(tabs)
+    if (url == 'https://fu-edunext.fpt.edu.vn/login') {
+        localStorageAction({type: "set", key: "user_infor", value: null});
+        document.getElementById('container').innerHTML = '<div>Please Login To <a href="https://fu-edunext.fpt.edu.vn"  > EDUNEXT  </a></div>'
     }
+
+    else {
+        
+        chrome.runtime.sendMessage({
+            type: "popup_to_background"
+          })
+
+        
+    //     if (JSON.parse(localStorage.getItem("user_infor"))) {
+    //     USER_INFOR = JSON.parse(localStorageAction({
+    //       type: "get",
+    //       key: "user_infor",
+    //     }))
+          
+    //     document.getElementById(
+    //       "container"
+    //     ).innerHTML = `<p>Email: ${USER_INFOR.email} </br>
+    //         Name: ${USER_INFOR.name} </br> 
+    //         RollNumber: ${USER_INFOR.rollNumber} </br>
+    //          </p>`;
+    //   } else {
+    //     document.getElementById("container").innerHTML = '<div>Please Login To <a  href="https://fu-edunext.fpt.edu.vn"  > EDUNEXT  </a></div>'
+    //     ;
+    //   }
+}
+
+
 });
 
