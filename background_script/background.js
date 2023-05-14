@@ -4,11 +4,6 @@ importScripts("helpui.js");
 update_api();
 function grade_teammates(params, privateCqId, classroomSessionId, groupId) {
   // console.log(params);
-
-  // console.log(
-  //   format_grade_teammates(params, privateCqId, classroomSessionId, groupId)
-  // );
-  // console.log(params);
   const ans = post_api({
     url: `${API.grade_teammates}`,
     body: {
@@ -22,13 +17,13 @@ function grade_teammates(params, privateCqId, classroomSessionId, groupId) {
   });
   ans
     .then((data) => {
-      console.log(data);
+      // console.log(data);
     })
     .catch((e) => {
       console.log({
         error: `${e}`,
-        message:  `${API.grade_teammates}`,
-      })
+        message: `${API.grade_teammates}`,
+      });
     });
 }
 
@@ -62,8 +57,8 @@ function get_grade(params) {
     .catch((e) => {
       console.log({
         error: `${e}`,
-        message:  `${API.get_grade}`,
-      })
+        message: `${API.get_grade}`,
+      });
     });
 }
 
@@ -112,23 +107,13 @@ function list_group() {
                 });
               }
 
-              // Iterate over the students in the current group.
-              // for (let l = 0; l < element3.listStudentByGroups.length; l++) {
-              //   // Get the current student.
-              //   const listStudentByGroups = element3.listStudentByGroups[l];
-
-              //   // Print the student's information.
-              //   console.log(data);
-              //   console.log(data.id)
-              // }
             }
           })
-          .catch((e) => { 
-
+          .catch((e) => {
             console.log({
               error: `${e}`,
-              message:  `${API.list_group}${element2.classroomSessionId}`,
-            })
+              message: `${API.list_group}${element2.classroomSessionId}`,
+            });
           });
       }
     }
@@ -178,7 +163,7 @@ function course_detail(params) {
           console.log({
             error: `${e}`,
             message: `${API.course_detail[0]}${element.id}${API.course_detail[1]}`,
-          })
+          });
         });
     }
   }
@@ -200,7 +185,7 @@ function class_infor() {
         console.log({
           error: `${e}`,
           message: `${API.class_info}${element.classId}`,
-        })
+        });
       });
   }
 }
@@ -216,24 +201,21 @@ function subjects_in_the_semester(params) {
       class_infor();
     })
     .catch((e) => {
-
       console.log({
         error: `${e}`,
         message: `${API.semester[0]}${USER_INFOR.userId}${API.semester[1]}${params}`,
-      })
-      
+      });
     });
 }
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
   function (details) {
-
     // initiator
     if (details.initiator == "https://fu-edunext.fpt.edu.vn") {
       const token = details.requestHeaders[2].value;
       if (token.includes("Bearer")) {
         TOKEN = token;
-        console.log(TOKEN);
+        // console.log(TOKEN);
       }
       //get token infor
       let ans = post_api(details);
@@ -241,8 +223,6 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
         .then((data) => {
           USER_INFOR = data.data;
           console.log(USER_INFOR);
-
-
 
           subjects_in_the_semester("DEFAULT");
 
