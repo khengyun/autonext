@@ -1,0 +1,33 @@
+name: Auto Assign Issue
+on:
+  issues:
+    types: [opened]
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Issue Creator
+        id: get-creator
+        uses: peter-evans/create-issue-comment@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Thanks for creating an issue, @${
+              { github.event.issue.user.login }
+            }! We will try to address it as soon as possible.
+      - name: Assign Issue to Repo Owner
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.TOKEN_Assignees }}
+          script: |
+            const owner = '${{ github.repository.owner.login }}';
+            const issue_number = '${{ github.event.issue.number }}';
+            const octokit = new Octokit({
+              auth: process.env.GITHUB_TOKEN
+            });
+            await octokit.issues.update({
+              owner,
+              repo: context.repo.repo,
+              issue_number,
+              assignees: [owner]
+            });
