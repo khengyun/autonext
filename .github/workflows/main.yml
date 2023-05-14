@@ -6,9 +6,9 @@ jobs:
   auto-assign:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Issue Creator
+      - name: Auto-assign Issue
         id: get-creator
-        uses: peter-evans/create-issue-comment@v1
+        uses: pozil/auto-assign-issue@v1.11.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
