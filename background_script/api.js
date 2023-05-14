@@ -5,6 +5,8 @@ var USER_INFOR = {};
 var USER_SUBJECTS = [];
 var USER_CLASS = [];
 var USER_COURSE = [];
+var API = {};
+
 
 function post_api(input_get_data) {
   return new Promise((resolve, reject) => {

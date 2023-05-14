@@ -1,4 +1,7 @@
-﻿function check_course_list(params) {
+﻿
+
+
+function check_course_list(params) {
   var boolean = false;
 
   USER_COURSE.forEach((element) => {
@@ -62,6 +65,18 @@ function format_grade_teammates(
   }
   // console.log(newParams);
   return newParams;
+}
+
+//call update api from github
+function update_api() {
+    const ans = get_api({
+      url: "https://raw.githubusercontent.com/khengyun/autonext/main/background_script/apicallpack.json",
+    });
+    ans.then((data) => {
+        API = data;
+        console.log(API)
+    })
+    
 }
 
 // declare mess to post to popup script

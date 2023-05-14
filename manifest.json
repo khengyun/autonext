@@ -25,7 +25,7 @@
         "popup/*.html",
         "popup/*.css"
       ],
-      "matches": ["https://fu.edunext.vn/*"],
+      "matches": ["https://*.fpt.edu.vn/*"],
       "use_dynamic_url": true
     }
   ],
