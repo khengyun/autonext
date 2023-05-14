@@ -9,7 +9,7 @@ function grade_teammates(params, privateCqId, classroomSessionId, groupId) {
   // );
   // console.log(params);
   const ans = post_api({
-    url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/grade/grade-teammates`,
+    url: `https://fugw-edunext.fpt.edu.vn/api/v1/grade/grade-teammates`,
     body: {
       gradeTeammatesList: format_grade_teammates(
         params,
@@ -33,7 +33,7 @@ function get_grade(params) {
   // param = {"privateCqId":privateCqId,"sessionId":sessionId,"groupId":groupID}
 
   const ans = post_api({
-    url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/grade/get-grade`,
+    url: `https://fugw-edunext.fpt.edu.vn/api/v1/grade/get-grade`,
     body: {
       privateCqId: params.privateCqId,
       groupId: params.groupId,
@@ -84,7 +84,7 @@ function list_group() {
 
         // Post a request to the API to get the list of groups for the current course.
         const ans = post_api({
-          url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/group/list-group?classroomSessionId=${element2.classroomSessionId}`,
+          url: `https://fugw-edunext.fpt.edu.vn/api/v1/group/list-group?classroomSessionId=${element2.classroomSessionId}`,
         });
 
         // Handle the response from the API.
@@ -133,7 +133,7 @@ function course_detail(params) {
     for (let i = 0; i < USER_CLASS.length; i++) {
       const element = USER_CLASS[i];
       const ans = get_api({
-        url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/course/course-detail?id=${element.id}&currentPage=1&pageSize=100&statusClickAll=false`,
+        url: `https://fugw-edunext.fpt.edu.vn/api/v1/course/course-detail?id=${element.id}&currentPage=1&pageSize=100&statusClickAll=false`,
       });
       ans
         .then((data) => {
@@ -173,7 +173,7 @@ function class_infor() {
   for (let i = 0; i < USER_SUBJECTS.length; i++) {
     const element = USER_SUBJECTS[i];
     const ans = get_api({
-      url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/class/class-info?id=${element.classId}`,
+      url: `https://fugw-edunext.fpt.edu.vn/api/v1/class/class-info?id=${element.classId}`,
     });
     ans
       .then((data) => {
@@ -189,7 +189,7 @@ function class_infor() {
 
 function subjects_in_the_semester(params) {
   const ans = get_api({
-    url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/v1/class/home/student?id=${USER_INFOR.userId}&semesterName=${params}`,
+    url: `https://fugw-edunext.fpt.edu.vn/api/v1/class/home/student?id=${USER_INFOR.userId}&semesterName=${params}`,
   });
   ans
     .then((data) => {

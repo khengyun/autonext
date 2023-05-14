@@ -1,5 +1,6 @@
 var TOKEN = ""
 var PORT = 8443;
+var NEW_PORT = ""
 var USER_INFOR = {};
 var USER_SUBJECTS = [];
 var USER_CLASS = [];

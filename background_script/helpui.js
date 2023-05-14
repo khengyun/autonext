@@ -44,9 +44,9 @@ function format_grade_teammates(
   for (let index = 0; index < teamlist.length; index++) {
     newParams.push({
       id: teamlist[index].id,
-      hardWorking: 5,
-      goodKnowledge: 5,
-      teamWorking: 5,
+      hardWorking: 0,
+      goodKnowledge: 0,
+      teamWorking: 0,
       userIsGraded: teamlist[index].userIsGraded
         ? teamlist[index].userIsGraded
         : 0,
@@ -82,20 +82,19 @@ function messtocontent(params, token) {
 
 // background script listen message from popup script and content script
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log(request);
+  // console.log(request);
   if(request.type == 'content_to_background') {
     
     const ans = post_api({url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/auth/token`})
     ans.then((data) => {
-      console.log(data)
+      // console.log(data)
       messtopopup({type: "background", message: data.data})
     })
   }
-  if(request.type == 'popup_to_background') {
-    
+  if(request.type == 'popup_to_background') { 
     const ans = post_api({url: `https://fugw-edunext.fpt.edu.vn:${PORT}/api/auth/token`})
     ans.then((data) => {
-      console.log(data)
+      // console.log(data)
       messtopopup({type: "background", message: data.data})
     })
   }

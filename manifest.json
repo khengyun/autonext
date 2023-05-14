@@ -11,9 +11,7 @@
   "permissions": [
     "webRequest",
     "storage",
-    "activeTab",
     "tabs",
-    "notifications",
     "scripting",
     "https://*.fpt.edu.vn/*"
   ],
