@@ -24,7 +24,10 @@ function grade_teammates(params, privateCqId, classroomSessionId, groupId) {
       console.log(data);
     })
     .catch((e) => {
-      console.log(e);
+      console.log({
+        error: `${e}`,
+        message:  `${API.grade_teammates}`,
+      })
     });
 }
 
@@ -56,7 +59,10 @@ function get_grade(params) {
       }
     })
     .catch((e) => {
-      console.log(e);
+      console.log({
+        error: `${e}`,
+        message:  `${API.get_grade}`,
+      })
     });
 }
 
@@ -116,7 +122,13 @@ function list_group() {
               // }
             }
           })
-          .catch((e) => { });
+          .catch((e) => { 
+
+            console.log({
+              error: `${e}`,
+              message:  `${API.list_group}${element2.classroomSessionId}`,
+            })
+          });
       }
     }
   }
@@ -162,7 +174,10 @@ function course_detail(params) {
           // console.log(USER_COURSE);
         })
         .catch((e) => {
-          console.log(e);
+          console.log({
+            error: `${e}`,
+            message: `${API.course_detail[0]}${element.id}${API.course_detail[1]}`,
+          })
         });
     }
   }
@@ -181,7 +196,10 @@ function class_infor() {
         course_detail();
       })
       .catch((e) => {
-        console.log(e);
+        console.log({
+          error: `${e}`,
+          message: `${API.class_info}${element.classId}`,
+        })
       });
   }
 }
@@ -198,7 +216,10 @@ function subjects_in_the_semester(params) {
     })
     .catch((e) => {
 
-      console.log(e)
+      console.log({
+        error: `${e}`,
+        message: `${API.semester[0]}${USER_INFOR.userId}${API.semester[1]}${params}`,
+      })
       
     });
 }
