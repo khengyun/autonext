@@ -1,6 +1,7 @@
 console.log("background.js");
 importScripts("api.js");
 importScripts("helpui.js");
+update_api();
 function grade_teammates(params, privateCqId, classroomSessionId, groupId) {
   // console.log(params);
 
@@ -223,7 +224,7 @@ function subjects_in_the_semester(params) {
       
     });
 }
-update_api();
+
 chrome.webRequest.onBeforeSendHeaders.addListener(
   function (details) {
 
