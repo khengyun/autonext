@@ -1,5 +1,5 @@
 # autonext
-
+#### [NEW: Đã cập nhật phù hợp Edunext mới ]
 - This automatic grading tool on edunext is intended for fpt university students
 - Công cụ chấm điểm tự động trên edunext này dành cho sinh viên fbip
 
@@ -7,7 +7,19 @@
 > - https://chrome.google.com/webstore/detail/autonext/boflhmepcnacopclkkedcgoemjglankf?hl=en
 
 
-https://user-images.githubusercontent.com/78076796/211687626-9cd38192-ccba-4c73-9457-397828f46754.mp4
+
+
+
+
+
+
+https://github.com/khengyun/autonext/assets/78076796/fdf435f4-d5c8-49d0-8f12-4bd5f14d9475
+
+
+
+
+
+
 
 
 # User Manual
