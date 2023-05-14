@@ -1,0 +1,23 @@
+﻿{
+    "token_check": "https://fugw-edunext.fpt.edu.vn/api/auth/token",
+    "get_grade": "https://fugw-edunext.fpt.edu.vn:8443/api/v1/grade/get-grade",
+    "grade_teammates": "https://fugw-edunext.fpt.edu.vn:8443/api/v1/grade/grade-teammates",
+    "list_group": "https://fugw-edunext.fpt.edu.vn/api/v1/group/list-group?classroomSessionId=",
+    "course_detail": [
+        [
+            "https://fugw-edunext.fpt.edu.vn/api/v1/course/course-detail?id="
+        ],
+        [
+            "&currentPage=1&pageSize=100&statusClickAll=false"
+        ]
+    ],
+    "class_info": "https://fugw-edunext.fpt.edu.vn/api/v1/class/class-info?id=",
+    "semester": [
+        [
+            "https://fugw-edunext.fpt.edu.vn/api/v1/class/home/student?id="
+        ],
+        [
+            "&semesterName="
+        ]
+    ]
+}
