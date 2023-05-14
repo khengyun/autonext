@@ -1,33 +1,14 @@
-name: Auto Assign Issue
+name: Issue assignment
+
 on:
-  issues:
-    types: [opened]
+    issues:
+        types: [opened]
+
 jobs:
-  auto-assign:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Auto-assign Issue
-        id: get-creator
-        uses: pozil/auto-assign-issue@v1.11.0
-        with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            Thanks for creating an issue, @${
-              { github.event.issue.user.login }
-            }! We will try to address it as soon as possible.
-      - name: Assign Issue to Repo Owner
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.TOKEN_Assignees }}
-          script: |
-            const owner = '${{ github.repository.owner.login }}';
-            const issue_number = '${{ github.event.issue.number }}';
-            const octokit = new Octokit({
-              auth: process.env.GITHUB_TOKEN
-            });
-            await octokit.issues.update({
-              owner,
-              repo: context.repo.repo,
-              issue_number,
-              assignees: [owner]
-            });
+    auto-assign:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Auto-assign issue'
+              uses: pozil/auto-assign-issue@v1
+              with:
+                  allowSelfAssign: true
