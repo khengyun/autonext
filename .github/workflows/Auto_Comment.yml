@@ -19,6 +19,6 @@ jobs:
       - name: 'Auto-assign issue'
         uses: pozil/auto-assign-issue@v1
         with:
-          assignees: khengyun
-          numOfAssignee: 1
-          allowSelfAssign: true
+          assignees: Carl-Johnsons,khengyun
+          numOfAssignee: 2
+          allowSelfAssign: false
