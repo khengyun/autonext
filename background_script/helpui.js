@@ -1,4 +1,27 @@
-﻿function check_course_list(params) {
+﻿
+
+function format_grade_present(params){
+
+  return {
+    classroomSessionId: params.classroomSessionId,
+    roundId: params.roundId,
+    privateCqId: params.privateCqId,
+    bonusPoint : 0,
+    presentingGroupDTO:{
+      keepTime: 5,
+        meetRequirement: 5,
+        presentations: 5,
+        goodInformation: 5,
+        presentGroupId: params.presentGroupId
+    },
+    reviewingGroupDTO: null
+
+  }
+
+}
+
+
+function check_course_list(params) {
   var boolean = false;
 
   USER_COURSE.forEach((element) => {
