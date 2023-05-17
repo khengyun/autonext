@@ -11,5 +11,7 @@
     "semester": [
         "https://fugw-edunext.fpt.edu.vn:8443/api/v1/class/home/student?id=",
         "&semesterName="
-    ]
+    ],
+    "round": "https://fugw-edunext.fpt.edu.vn:8443/api/v1/round/get?privateCqId=",
+    "grading_group": "https://fugw-edunext.fpt.edu.vn:8443/api/v1/grade/grading-group"
 }
