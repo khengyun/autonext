@@ -25,7 +25,7 @@ function get_grade_group(params) {
       team_groupId = user_group.groupId;
 
       post_present = post_api({
-        url: `https://fugw-edunext.fpt.edu.vn:8443/api/v1/grade/grading-group`,
+        url: `${API.grading_group}`,
         body: format_grade_present({
           classroomSessionId: team_classroomSessionId,
           roundId:  roundId,
@@ -65,7 +65,7 @@ function get_grade_group(params) {
 
 function get_round_for_grading(params) {
   ans = get_api({
-    url: `https://fugw-edunext.fpt.edu.vn:8443/api/v1/round/get?privateCqId=${params}`,
+    url: `${API.round}${params}`,
   });
   ans
     .then((data) => {
